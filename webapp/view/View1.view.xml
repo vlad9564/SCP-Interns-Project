@@ -1,0 +1,32 @@
+<mvc:View controllerName="com.cerner.interns.SAPUI5_Demo.controller.View1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page title="Title">		
+		<customHeader>
+		<Bar>
+		<contentLeft>
+		<Image src="image/logo1.png" height="20px" />
+		</contentLeft>
+		
+		
+		
+		<contentRight>
+		<Text text="{
+				path: '/dtValue',
+				type: 'sap.ui.model.type.DateTime',
+				formatOptions: {
+					style: 'short'
+					}
+			}" />
+		</contentRight>		
+		</Bar>
+		</customHeader>
+		
+		<content>			
+		</content>
+	</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
