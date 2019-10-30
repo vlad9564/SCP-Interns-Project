@@ -8,7 +8,7 @@ sap.ui.define([ 'sap/ui/core/mvc/Controller', 'sap/ui/model/json/JSONModel' ], f
 
 		onInit: function(evt) {
 			var oModel = new JSONModel(this._data);
-			this.getView().setModel(oModel);
+			this.getView().setModel(oModel, 'systemDate');
 		}
 	});
 });
