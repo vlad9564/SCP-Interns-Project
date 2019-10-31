@@ -1,0 +1,79 @@
+swagger: '2.0'
+info:
+  title: REST API SLUICE MODEL
+  version: 1.1.0
+
+paths: {}
+
+definitions:
+
+  DoctorsDto:
+    type: "array"
+    items:
+      $ref: "#/definitions/DoctorDto"
+
+  DoctorDto:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        description: "The objectId of the Doctor"
+      firstName:
+        type: "string"
+        description: "The first name of the Doctor"
+      lastName:
+        type: "string"
+        description: "The last name of the Doctor"
+      department:
+        type: "string"
+        description: "The department of the Doctor"
+      age:
+        type: "integer"
+        format: "int32"
+        description: "The age of the Doctor"
+
+  PatientsDto:
+    type: "array"
+    items:
+      $ref: "#/definitions/PatientDto"
+
+  PatientDto:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+      firstName:
+        type: "string"
+        description: "The first name of the Patient"
+      lastName:
+        type: "string"
+        description: "The last name of the Patient"
+      doctor:
+        $ref: "#/definitions/DoctorDto"
+      age:
+        type: "integer"
+        format: "int32"
+        description: "The age of the Patient"
+
+  AboutDto:
+    type: "object"
+    properties:
+      description:
+        type: "string"
+        description: "The description of the hospital"
+      title:
+        type: "string"
+        description: "The title of the section"
+      hospitalName:
+        type: "string"
+        description: "The name of the hospital"
+      hospitalLocation:
+        type: "string"
+        description: "The location of the hospital"
+      version:
+        type: "integer"
+        format: "int32"
+        description: "Application version"
+      contact:
+        type: "string"
+        description: "Hospital contact"

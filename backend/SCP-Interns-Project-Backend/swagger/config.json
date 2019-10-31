@@ -1,7 +1,7 @@
 {
   "basePackage": "notneeded",
-  "apiPackage": "com.cerner.scp.pattor.generated.api",
-  "modelPackage": "com.cerner.scp.pattor.generated.model",
+  "apiPackage": "com.cerner.SCPInternsProjectBackend.controller",
+  "modelPackage": "com.cerner.SCPInternsProjectBackend.model",
   "invokerPackage": "notneeded",
   "configPackage": "notneeded",
   "hideGenerationTimestamp" : true,
