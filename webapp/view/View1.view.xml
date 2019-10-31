@@ -1,8 +1,11 @@
-<mvc:View controllerName="com.cerner.interns.SAPUI5_Demo.controller.View1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+<mvc:View controllerName="com.cerner.interns.SAPUI5_Demo.controller.View1" 
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
+	xmlns="sap.m" 
+	xmlns:core="sap.ui.core">
 	<Shell id="shell">
 		<App id="app">
 			<pages>
-				<Page title="Title">		
+				<Page title="Title">
 					<customHeader>
 						<Bar>
 							<contentLeft>
@@ -10,10 +13,33 @@
 							</contentLeft>
 							<contentRight>
 								<Text text="{path: 'systemDate>/dtValue',type: 'sap.ui.model.type.DateTime',formatOptions: {style: 'short'}}" />
-							</contentRight>		
-						</Bar> 
+							</contentRight>
+						</Bar>
 					</customHeader>
-					<content>			
+					<content>
+						<VBox>
+							<List headerText="Pacient List" mode="Delete" items="{path: 'patientList>/Patients'}" styleClass = "patientList">
+								<CustomListItem>
+									<HBox>
+										<VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom">
+											<Label text="{patientList>name}"/>
+										</VBox>
+									</HBox>
+								</CustomListItem>
+							</List>
+						</VBox>
+
+						<VBox>
+							<List headerText="Pacient List" mode="Delete" items="{path: 'patientList>/Patients'}" width = "35%">
+								<CustomListItem>
+									<HBox>
+										<VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom">
+											<Label text="{patientList>name}"/>
+										</VBox>
+									</HBox>
+								</CustomListItem>
+							</List>
+						</VBox>
 					</content>
 				</Page>
 			</pages>
