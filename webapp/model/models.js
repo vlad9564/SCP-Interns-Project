@@ -12,9 +12,7 @@ sap.ui.define([
 			return oModel;
 		},
 		createDoctorModel: () => {
-			const path = "model/Doctor.json";
-			let oModel = new JSONModel(path);
-			return oModel;
+			return new JSONModel("model/Doctor.json");
 		}
 
 	};

@@ -1,4 +1,4 @@
-<mvc:View controllerName="com.cerner.interns.SAPUI5_Demo.controller.View1" 
+<mvc:View controllerName="com.cerner.interns.SAPUI5_Demo.controller.MainPage" 
 	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
 	xmlns="sap.m">
 	<Shell id="shell">
