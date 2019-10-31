@@ -14,7 +14,6 @@
 			"version": "1.40.12"
 		}
 	},
-
 	"sap.ui": {
 		"technology": "UI5",
 		"icons": {
@@ -31,14 +30,13 @@
 			"phone": true
 		}
 	},
-
 	"sap.ui5": {
 		"flexEnabled": false,
 		"rootView": {
-			"viewName": "com.cerner.interns.SAPUI5_Demo.view.View1",
+			"viewName": "com.cerner.interns.SAPUI5_Demo.view.MainPage",
 			"type": "XML",
 			"async": true,
-			"id": "View1"
+			"id": "MainPage"
 		},
 		"dependencies": {
 			"minUI5Version": "1.60.1",
@@ -61,9 +59,11 @@
 			}
 		},
 		"resources": {
-			"css": [{
-				"uri": "css/style.css"
-			}]
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
 		},
 		"routing": {
 			"config": {
@@ -75,18 +75,22 @@
 				"controlId": "app",
 				"clearControlAggregation": false
 			},
-			"routes": [{
-				"name": "RouteView1",
-				"pattern": "RouteView1",
-				"target": ["TargetView1"]
-			}],
+			"routes": [
+				{
+					"name": "RouteMainPage",
+					"pattern": "RouteMainPage",
+					"target": [
+						"TargetMainPage"
+					]
+				}
+			],
 			"targets": {
-				"TargetView1": {
+				"TargetMainPage": {
 					"viewType": "XML",
 					"transition": "slide",
 					"clearControlAggregation": false,
-					"viewId": "View1",
-					"viewName": "View1"
+					"viewId": "MainPage",
+					"viewName": "MainPage"
 				}
 			}
 		}

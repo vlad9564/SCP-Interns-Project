@@ -1,0 +1,37 @@
+<mvc:View controllerName="com.cerner.interns.SAPUI5_Demo.controller.MainPage" 
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
+	xmlns="sap.m">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page title="Title">
+					<customHeader>
+						<Bar>
+							<contentLeft>
+								<Image src="images/CernerLogo.png" height="20px" />
+							</contentLeft>
+							<contentRight>
+								<Text text="{path: 'systemDate>/dtValue',type: 'sap.ui.model.type.DateTime',formatOptions: {style: 'short'}}" />
+							</contentRight>
+						</Bar>
+					</customHeader>
+					<content>
+						<VBox>
+							<List id="doctorsList" headerText="Doctors List" class="sapUiResponsiveMargin" width="35%" items="{doctors>/Doctors}">
+								<items>
+									<CustomListItem type="Navigation" press="onSelectedDoctor">
+
+										<VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom">
+											<Label text="Name: {doctors>lastName}"/>
+											<Label text="{doctors>firstName}"/>
+										</VBox>
+									</CustomListItem>
+								</items>
+							</List>
+						</VBox>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
