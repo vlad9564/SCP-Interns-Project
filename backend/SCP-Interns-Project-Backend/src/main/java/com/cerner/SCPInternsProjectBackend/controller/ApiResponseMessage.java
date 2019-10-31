@@ -2,7 +2,6 @@ package com.cerner.SCPInternsProjectBackend.controller;
 
 import javax.xml.bind.annotation.XmlTransient;
 
-
 @javax.xml.bind.annotation.XmlRootElement
 public class ApiResponseMessage {
     public static final int ERROR = 1;
