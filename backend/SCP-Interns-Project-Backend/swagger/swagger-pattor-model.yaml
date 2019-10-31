@@ -1,0 +1,24 @@
+swagger: '2.0'
+info:
+  title: REST API SLUICE MODEL
+  version: 1.1.0
+
+paths: {}
+
+definitions:
+  #Start definitions for ArtboardDto chapter
+  ArtboardDto:
+    type: object
+    properties:
+      projectId:
+        type: string
+        description: The objectId of the ProjectDto.
+      _id:
+        type: string
+        description: The objectId of the Artboard.
+      artboardId:
+        type: string
+        description: The uuid of the Artboard used for uniqueness in UI.
+      artboardData:
+        type: object
+        description: ArtboardDto data.
