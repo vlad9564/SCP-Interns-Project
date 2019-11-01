@@ -1,1 +1,17 @@
 /* Enter your custom styles here */
+
+.listSizing {
+    width: 25rem !important;
+    overflow: scroll;
+    height: 30rem;
+}
+
+.globalMargin {
+    margin: 0rem 6rem;
+}
+
+.headerList {
+    width: 9rem !important;
+    font-size: 1.5rem;
+    padding: 2%;
+}

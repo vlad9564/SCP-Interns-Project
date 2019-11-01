@@ -11,6 +11,9 @@ sap.ui.define(['sap/ui/core/mvc/Controller', 'sap/ui/model/json/JSONModel', "com
 			var oModel = new JSONModel(this._data);
 			this.getView().setModel(oModel, 'systemDate');
 
+			let oPacientModel = models.createPacientModel();
+			this.getView().setModel(oPacientModel, "patientList");
+
 		},
 		onSelectedDoctor: function (oEvent) {
 			let currentDoctorPath = oEvent.getSource().getBindingContextPath("doctors"); debugger;
