@@ -24,7 +24,11 @@ sap.ui.define([
             // },
             onOpenAppointmentPage: function (oEvent) {
                 let oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-                oRouter.navTo("Appointment");
+                oRouter.navTo("AppointmentPage");
+            },
+            onOpenAdministrationPage: function (oEvent) {
+                let oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                oRouter.navTo("AdministrationPage");
             },
         });
     });

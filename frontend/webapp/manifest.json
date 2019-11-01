@@ -84,9 +84,14 @@
 					]
 				},
 				{
-					"name": "Appointment",
-					"pattern": "Appointment",
-					"target": "Appointment"
+					"name": "AppointmentPage",
+					"pattern": "AppointmentPage",
+					"target": "AppointmentPage"
+				},
+				{
+					"name": "AdministrationPage",
+					"pattern": "AdministrationPage",
+					"target": "AdministrationPage"
 				}
 			],
 			"targets": {
@@ -97,9 +102,13 @@
 					"viewId": "MainClinicalPage",
 					"viewName": "MainClinicalPage"
 				},
-				"Appointment": {
+				"AppointmentPage": {
 					"viewId": "AppointmentView",
 					"viewName": "MainPage"
+				},
+				"AdministrationPage": {
+					"viewId": "AdministrationView",
+					"viewName": "AdministrationPage"
 				}
 			}
 		}

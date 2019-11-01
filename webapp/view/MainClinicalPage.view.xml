@@ -21,7 +21,7 @@
                             <HBox>
                                 <VBox>
                                     <HBox>
-                                        <GenericTile class="cardLayout sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Administration" subheader="Subheader" press="press">
+                                        <GenericTile class="cardLayout sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Administration" subheader="Subheader" press="onOpenAdministrationPage">
                                             <TileContent footer="Click here to go on Administration Page">
                                                 <ImageContent src="sap-icon://key-user-settings" />
                                             </TileContent>

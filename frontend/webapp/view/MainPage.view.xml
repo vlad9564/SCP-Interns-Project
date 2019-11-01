@@ -29,15 +29,15 @@
 								</HBox>
 								<HBox>
 									<List items="{path: 'patientList>/Patients'}" class="listSizing globalMargin">
-		
+
 										<CustomListItem type="Active" press="onSelectedPatient">
 											<VBox>
-											<Label text="{patientList>firstName}" />
-											<Label text="{patientList>lastName}"/>
+												<Label text="{patientList>firstName}" />
+												<Label text="{patientList>lastName}"/>
 
 											</VBox>
 											<Label text="{selectedDoctor>id}"/>
-											<Button  text="Info" class="sapUiSmallMarginBottom infoButton" press="onShowPatientDetails" width="250px"/>
+											<Button text="Info" class="sapUiSmallMarginBottom infoButton" press="onShowPatientDetails" width="250px"/>
 										</CustomListItem>
 
 									</List>
@@ -51,16 +51,16 @@
 								<HBox>
 									<List id="doctorsList" class="listSizing globalMargin" items="{doctors>/Doctors}">
 										<items>
-											<CustomListItem type="Active" press="onSelectedDoctor">
+											<CustomListItem type="Navigation" press="onSelectedDoctor">
 												<HBox>
-												<VBox>
-											<Label text="{doctors>lastName}"/>
-											<Label text="{doctors>firstName}"/>
-											</VBox>
-											
-												<Button text="Info" class="sapUiSmallMarginBottom infoButton" press="onShowDoctorDetails" width="250px"/>
+													<VBox>
+														<Label text="{doctors>lastName}"/>
+														<Label text="{doctors>firstName}"/>
+													</VBox>
+
+													<Button text="Info" class="sapUiSmallMarginBottom infoButton" press="onShowDoctorDetails" width="250px"/>
 												</HBox>
-											
+
 											</CustomListItem>
 										</items>
 									</List>
@@ -87,7 +87,7 @@
 							</items>
 						</List>
 						<HBox>
-						<Button class="linkButton" text="Link" press=".dialogShow" />
+							<Button class="linkButton" text="Link" press=".dialogShow" />
 						</HBox>
 
 					</content>
