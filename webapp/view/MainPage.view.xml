@@ -1,6 +1,7 @@
 <mvc:View controllerName="com.cerner.interns.SAPUI5_Demo.controller.MainPage" 
 	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
-	xmlns="sap.m">
+	xmlns="sap.m" 
+	xmlns:l="sap.ui.layout">
 	<Shell id="shell">
 		<App id="app">
 			<pages>
@@ -16,19 +17,44 @@
 						</Bar>
 					</customHeader>
 					<content>
-						<VBox>
-							<List id="doctorsList" headerText="Doctors List" class="sapUiResponsiveMargin" width="35%" items="{doctors>/Doctors}">
-								<items>
-									<CustomListItem type="Navigation" press="onSelectedDoctor">
 
-										<VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom">
-											<Label text="Name: {doctors>lastName}"/>
-											<Label text="{doctors>firstName}"/>
-										</VBox>
-									</CustomListItem>
-								</items>
-							</List>
-						</VBox>
+
+						<HBox>
+
+							<VBox>
+								<HBox>
+									<Text class="headerList globalMargin" textAlign="Center" text="Patient List"/>
+								</HBox>
+								<HBox>
+									<List items="{path: 'patientList>/Patients'}" class="listSizing globalMargin">
+										<CustomListItem type="Navigation">
+											<CheckBox text="{patientList>id} {patientList>firstName} {patientList>lastName}" selected="false" valueState="Information"/>
+										</CustomListItem>
+									</List>
+								</HBox>
+							</VBox>
+
+
+
+							<VBox>
+								<HBox>
+									<Text class="headerList globalMargin" textAlign="Center" text="Doctors List"/>
+								</HBox>
+								<HBox>
+									<List id="doctorsList" class="listSizing globalMargin" items="{doctors>/Doctors}">
+										<items>
+											<CustomListItem type="Active" press="onSelectedDoctor">
+												<VBox>
+													<CheckBox text="{doctors>lastName} {doctors>firstName}" selected="false" valueState="Information"/>
+												</VBox>
+											</CustomListItem>
+										</items>
+									</List>
+								</HBox>
+							</VBox>
+
+						</HBox>
+
 					</content>
 				</Page>
 			</pages>
