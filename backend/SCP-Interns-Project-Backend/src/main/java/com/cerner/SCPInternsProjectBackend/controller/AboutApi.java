@@ -43,7 +43,7 @@ public interface AboutApi {
     @RequestMapping(value = "/about",
         produces = { "application/json" }, 
         method = RequestMethod.GET)
-    default ResponseEntity<AboutDto> getAbout() {
+    default ResponseEntity<AboutDto> getAboutInfo() {
         if(getObjectMapper().isPresent() && getAcceptHeader().isPresent()) {
             if (getAcceptHeader().get().contains("application/json")) {
                 try {
