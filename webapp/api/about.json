@@ -1,0 +1,10 @@
+{
+    "About": [{
+        "description": "descriere",
+        "title": "titlu",
+        "hospitalName": "nume spital",
+        "hospitalLocation": "locatie spital",
+        "version": "versiune",
+        "contact": "contact"
+    }]
+}

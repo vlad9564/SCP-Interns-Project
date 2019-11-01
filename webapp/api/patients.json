@@ -1,0 +1,12 @@
+{
+    "patients": [{
+        "id": 1,
+        "firstName": "nume1",
+        "lastName": "nume1",
+        "doctor": {
+            "id": 1,
+            "firstName": "Doctor"
+        },
+        "age": 26
+    }]
+}
