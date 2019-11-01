@@ -43,3 +43,50 @@ paths:
           description: "Invalid status value"
         500:
           description: "Internal server error"
+
+  /about:
+    get:
+      tags:
+      - "about"
+      summary: "Get about"
+      description: "Get about"
+      operationId: "getAbout"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/AboutDto"
+        400:
+          description: "Invalid status value"
+        500:
+          description: "Internal server error"
+          
+  /patient:
+    put:
+      tags:
+      - "patient"
+      summary: "Updated patient"
+      description: "Update used to assing a patient to a doctor"
+      operationId: "updatePatient"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "patientId"
+        in: "query"
+        description: "Patient id that need to be updated"
+        required: true
+        type: "string"
+      - name: "doctorId"
+        in: "query"
+        description: "Doctor id that is going to be assigned to a patient "
+        required: true
+        type: "string"
+      responses:
+        400:
+          description: "Invalid user supplied"
+        404:
+          description: "Patient not found"
+        500:
+          description: "Internal server error"
