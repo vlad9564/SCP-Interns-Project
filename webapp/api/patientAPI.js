@@ -1,6 +1,4 @@
-sap.ui.define([
-    "sap/ui/model/json/JSONModel"
-], function (JSONModel) {
+sap.ui.define([], function () {
     "use strict";
 
     return {
