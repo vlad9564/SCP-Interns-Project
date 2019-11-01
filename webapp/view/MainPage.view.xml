@@ -29,12 +29,6 @@
 									<List items="{path: 'patientList>/Patients'}" class="listSizing globalMargin">
 										<CustomListItem type="Navigation">
 											<CheckBox text="{patientList>id} {patientList>firstName} {patientList>lastName}" selected="false" valueState="Information"/>
-											<!-- <HBox>
-												<VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom">
-													<Label text="{patientList>id}"/>
-													<Label text="{patientList>name}"/>
-												</VBox>
-											</HBox> -->
 										</CustomListItem>
 									</List>
 								</HBox>

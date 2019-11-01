@@ -156,8 +156,7 @@ sap.ui.define([
 			};
 
 
-			let oModel = new JSONModel(oData);
-			return oModel;
+			return new JSONModel(oData);
 		}
 
 

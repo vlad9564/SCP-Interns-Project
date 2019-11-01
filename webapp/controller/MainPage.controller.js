@@ -6,17 +6,17 @@ sap.ui.define(['sap/ui/core/mvc/Controller', 'sap/ui/model/json/JSONModel', "com
 		},
 
 		onInit: function (evt) {
-			var oDoctorModel = models.createDoctorModel();
+			const oDoctorModel = models.createDoctorModel();
 			this.getView().setModel(oDoctorModel, "doctors");
-			var oModel = new JSONModel(this._data);
+			const oModel = new JSONModel(this._data);
 			this.getView().setModel(oModel, 'systemDate');
 
-			let oPacientModel = models.createPacientModel();
+			const oPacientModel = models.createPacientModel();
 			this.getView().setModel(oPacientModel, "patientList");
 
 		},
 		onSelectedDoctor: function (oEvent) {
-			let currentDoctorPath = oEvent.getSource().getBindingContextPath("doctors"); debugger;
+			let currentDoctorPath = oEvent.getSource().getBindingContextPath("doctors");
 			return this.getView().getModel("doctors").getProperty(currentDoctorPath);
 		},
 	});
