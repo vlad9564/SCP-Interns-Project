@@ -69,3 +69,14 @@
 	width: 5rem !important;
 	margin: 0rem 3rem;
 }
+.tileLayout {
+	float: left;
+}
+.cardLayout{
+    width:18rem !important;
+    height: 12rem !important;
+    margin: 0rem 4rem;
+}
+.cardsStyle{
+    margin: 10% 23%;
+}

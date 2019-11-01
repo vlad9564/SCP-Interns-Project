@@ -9,7 +9,8 @@
 					<customHeader>
 						<Bar>
 							<contentLeft>
-								<Image src="images/CernerLogo.png" height="20px" />
+								<Button icon="sap-icon://nav-back" press="onNavigationBack"/>
+								<Image src="images/CernerLogo.png" height="20px"/>
 							</contentLeft>
 							<contentMiddle>
 								<Text text="Pacients Assignment"/>

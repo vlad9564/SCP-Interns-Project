@@ -4,9 +4,10 @@ sap.ui.define(
 		'sap/ui/model/json/JSONModel',
 		'com/cerner/interns/SAPUI5_Demo/model/models',
 		'sap/m/MessageBox',
-		'sap/ui/model/resource/ResourceModel'
+		'sap/ui/model/resource/ResourceModel',
+		"sap/ui/core/UIComponent"
 	],
-	function(Controller, JSONModel, models, MessageBox, ResourceModel) {
+	function (Controller, JSONModel, models, MessageBox, ResourceModel, UIComponent) {
 		'use strict';
 		var doctor;
 		var patient;
@@ -15,7 +16,7 @@ sap.ui.define(
 				dtValue: new Date()
 			},
 
-			onInit: async function(evt) {
+			onInit: async function (evt) {
 				var oDoctorModel = await models.createDoctorModel();
 				this.getView().setModel(oDoctorModel, 'doctors');
 				debugger;
@@ -42,7 +43,7 @@ sap.ui.define(
 
 				this.getView().setModel(patientId, 'patientId');
 			},
-			onShowPatientDetails: function(oEvent) {
+			onShowPatientDetails: function (oEvent) {
 				let currentPatientPath = oEvent.getSource().getBindingContext('patientList');
 				const patientFirstName = this.getView()
 					.getModel('patientList')
@@ -67,7 +68,7 @@ sap.ui.define(
 					}
 				);
 			},
-			onShowDoctorDetails: function(oEvent) {
+			onShowDoctorDetails: function (oEvent) {
 				let currentDoctorPath = oEvent.getSource().getBindingContext('doctors');
 				const doctorFirstName = this.getView().getModel('doctors').getProperty('firstName', currentDoctorPath);
 				const doctorLastName = this.getView().getModel('doctors').getProperty('lastName', currentDoctorPath);
@@ -90,33 +91,37 @@ sap.ui.define(
 					}
 				);
 			},
-			onSelectedDoctor: function(oEvent) {
+			onSelectedDoctor: function (oEvent) {
 				let currentDoctorPath = oEvent.getSource().getBindingContextPath('doctors');
 				doctor = this.getView().getModel('doctors').getProperty(currentDoctorPath);
 			},
-			onSelectedPatient: function(oEvent) {
+			onSelectedPatient: function (oEvent) {
 				let currentPatientPath = oEvent.getSource().getBindingContextPath('patientList');
 
 				patient = this.getView().getModel('patientList').getProperty(currentPatientPath);
 			},
-			dialogShow: function() {
+			dialogShow: function () {
 				MessageBox.warning(this.getView().getModel('i18n').getProperty('titleMessage'), {
 					title: this.getView().getModel('i18n').getProperty('titleMessageBox'),
-					actions: [ MessageBox.Action.YES, MessageBox.Action.NO ],
-					onClose: function(sAction) {
+					actions: [MessageBox.Action.YES, MessageBox.Action.NO],
+					onClose: function (sAction) {
 						if (sAction === MessageBox.Action.YES) {
 							patient.doctor = doctor;
 						}
 					}
 				});
 			},
-			onAbout: function(oEvent) {
+			onAbout: function (oEvent) {
 				const aboutSection = this.getView().byId('aboutList');
 				if (aboutSection.getVisible()) {
 					aboutSection.setVisible(false);
 				} else {
 					aboutSection.setVisible(true);
 				}
+			},
+			onNavigationBack: function () {
+				let oRouter = UIComponent.getRouterFor(this);
+				oRouter.navTo("RouteMainClinicalPage", true);
 			}
 		});
 	}

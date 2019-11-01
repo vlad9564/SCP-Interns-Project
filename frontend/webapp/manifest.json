@@ -33,7 +33,7 @@
 	"sap.ui5": {
 		"flexEnabled": false,
 		"rootView": {
-			"viewName": "com.cerner.interns.SAPUI5_Demo.view.MainPage",
+			"viewName": "com.cerner.interns.SAPUI5_Demo.view.MainClinicalPage",
 			"type": "XML",
 			"async": true,
 			"id": "MainPage"
@@ -77,19 +77,28 @@
 			},
 			"routes": [
 				{
-					"name": "RouteMainPage",
-					"pattern": "RouteMainPage",
+					"name": "RouteMainClinicalPage",
+					"pattern": "RouteMainClinicalPage",
 					"target": [
-						"TargetMainPage"
+						"TargetMainClinicalPage"
 					]
+				},
+				{
+					"name": "Appointment",
+					"pattern": "Appointment",
+					"target": "Appointment"
 				}
 			],
 			"targets": {
-				"TargetMainPage": {
+				"TargetMainClinicalPage": {
 					"viewType": "XML",
 					"transition": "slide",
 					"clearControlAggregation": false,
-					"viewId": "MainPage",
+					"viewId": "MainClinicalPage",
+					"viewName": "MainClinicalPage"
+				},
+				"Appointment": {
+					"viewId": "AppointmentView",
 					"viewName": "MainPage"
 				}
 			}
