@@ -1,0 +1,8 @@
+<core:FragmentDefinition
+controllerName="com.cerner.interns.SAPUI5_Demo.controller.MainPage" 
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core" >
+   
+
+   
+</core:FragmentDefinition>
