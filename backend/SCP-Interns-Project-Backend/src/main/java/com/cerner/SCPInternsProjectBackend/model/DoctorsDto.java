@@ -5,12 +5,14 @@ import java.util.Objects;
 
 import org.springframework.validation.annotation.Validated;
 
+import com.cerner.SCPInternsProjectBackend.Util.JSONTranslatable;
+
 /**
  * DoctorsDto
  */
 @Validated
 
-public class DoctorsDto extends ArrayList<DoctorDto> {
+public class DoctorsDto extends ArrayList<DoctorDto> implements JSONTranslatable {
 
 	@Override
 	public boolean equals(java.lang.Object o) {
