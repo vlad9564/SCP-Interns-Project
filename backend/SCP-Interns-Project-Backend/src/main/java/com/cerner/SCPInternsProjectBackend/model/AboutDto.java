@@ -4,6 +4,7 @@ import java.util.Objects;
 
 import org.springframework.validation.annotation.Validated;
 
+import com.cerner.SCPInternsProjectBackend.Util.JSONTranslatable;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -11,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @Validated
 
-public class AboutDto {
+public class AboutDto implements JSONTranslatable {
 	@JsonProperty("description")
 	private String description = null;
 

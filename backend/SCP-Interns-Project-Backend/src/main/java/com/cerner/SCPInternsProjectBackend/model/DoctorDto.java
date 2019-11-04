@@ -4,6 +4,7 @@ import java.util.Objects;
 
 import org.springframework.validation.annotation.Validated;
 
+import com.cerner.SCPInternsProjectBackend.Util.JSONTranslatable;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -11,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @Validated
 
-public class DoctorDto {
+public class DoctorDto implements JSONTranslatable {
 	@JsonProperty("id")
 	private String id = null;
 
@@ -26,6 +27,21 @@ public class DoctorDto {
 
 	@JsonProperty("age")
 	private Integer age = null;
+	
+	public DoctorDto() {
+		
+	}
+
+	public DoctorDto(String id, String firstName, String lastName, String department, Integer age) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.department = department;
+		this.age = age;
+	}
+
+
 
 	public DoctorDto id(String id) {
 		this.id = id;
