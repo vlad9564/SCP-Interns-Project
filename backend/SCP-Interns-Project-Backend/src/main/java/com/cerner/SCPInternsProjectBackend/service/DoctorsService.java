@@ -15,13 +15,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
 public class DoctorsService {
-	
+
 	private File getDoctorsFile() throws FileNotFoundException {
 		return ResourceUtils.getFile("classpath:doctors.json");
 	}
-	
+
 	public DoctorsDto getAllDoctors() throws JsonParseException, JsonMappingException, IOException {
-		ObjectMapper mapper = new ObjectMapper();
-		return mapper.readValue(getDoctorsFile(), DoctorsDto.class);
+		return new ObjectMapper().readValue(getDoctorsFile(), DoctorsDto.class);
 	}
 }

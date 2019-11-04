@@ -17,9 +17,8 @@ public class AboutService {
 	private File getAboutFile() throws FileNotFoundException {
 		return ResourceUtils.getFile("classpath:about.json");
 	}
-	
+
 	public AboutDto getAboutInfo() throws JsonParseException, JsonMappingException, IOException {
-		ObjectMapper mapper = new ObjectMapper();
-		return mapper.readValue(getAboutFile(), AboutDto.class);
+		return new ObjectMapper().readValue(getAboutFile(), AboutDto.class);
 	}
 }
