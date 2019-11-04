@@ -3,6 +3,8 @@ package com.cerner.SCPInternsProjectBackend.service;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.stereotype.Service;
 import org.springframework.util.ResourceUtils;
@@ -22,23 +24,18 @@ public class PatientService {
 		return ResourceUtils.getFile("classpath:patients.json");
 	}
 	
-//	public DoctorsDto getAllDoctors() throws JsonParseException, JsonMappingException, IOException {
-//		ObjectMapper mapper = new ObjectMapper();
-//		return mapper.readValue(getDoctorsFile(), DoctorsDto.class);
-//	}
-	
-	private PatientsDto findPatientById() throws JsonParseException, JsonMappingException, IOException {
+	private PatientDto findPatientById(String patientId) throws JsonParseException, JsonMappingException, IOException {
 		ObjectMapper mapper = new ObjectMapper();
-		return mapper.readValue(getPatientsFile(), PatientsDto.class);
+		List<PatientDto> patients = mapper.readValue(getPatientsFile(), PatientsDto.class);
+		PatientDto patient = patients.stream().filter(value -> value.getId().equals(patientId)).findFirst().get();
+		return patient;
 	}
 	
 	public PatientDto updatePatient(String patientId,DoctorDto body) throws JsonParseException, JsonMappingException, IOException {
-//		ObjectMapper mapper = new ObjectMapper();
-		System.out.println(this.findPatientById());
-//		System.out.println(patientId);
-//		System.out.println(body);
-//		System.out.println(this.getPatientsFile());
-		
-		return null;
+
+		PatientDto patient = this.findPatientById(patientId);
+		patient.setDoctor(body);
+//		System.out.println(patient);
+		return patient;
 	}
 }

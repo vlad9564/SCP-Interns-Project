@@ -34,6 +34,7 @@ public class PatientApiController implements PatientApi {
 	
 		
 			try {
+				System.out.println(servicePatient.updatePatient(patientId,body));
 				return ResponseEntity.ok(servicePatient.updatePatient(patientId,body));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
