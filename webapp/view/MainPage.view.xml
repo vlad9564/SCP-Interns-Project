@@ -11,16 +11,17 @@
 							<contentLeft>
 								<Image src="images/CernerLogo.png" height="20px" />
 							</contentLeft>
+							<contentMiddle>
+								<Text text="Pacients Assignment"/>
+							</contentMiddle>
 							<contentRight>
 								<Text text="{path: 'systemDate>/dtValue',type: 'sap.ui.model.type.DateTime',formatOptions: {style: 'short'}}" />
+								<Button id="btn1" icon="sap-icon://hint" press="onAbout"/>
 							</contentRight>
 						</Bar>
 					</customHeader>
 					<content>
-
-
 						<HBox>
-
 							<VBox>
 								<HBox>
 									<Text class="headerList globalMargin" textAlign="Center" text="Patient List"/>
@@ -33,8 +34,6 @@
 									</List>
 								</HBox>
 							</VBox>
-
-
 
 							<VBox>
 								<HBox>
@@ -52,9 +51,26 @@
 									</List>
 								</HBox>
 							</VBox>
-
 						</HBox>
 
+						<List id="aboutList" width="20%" class="about aboutShow" items="{about>/About}">
+							<items id="items">
+								<CustomListItem id="customList">
+									<ImageContent src="sap-icon://database" />
+									<VBox class="sapUiSmallMarginBeginEnd sapUiSmallMarginBottom textAlign" id="VBox">
+										<Label wrapping="true" textAlign="Center" text="{about>title}"/>
+										<Label wrapping="true" text="{about>blank}"/>
+										<Label wrapping="true" wrappingType="Hyphenated" textAlign="Center" text="{about>description}"/>
+										<Label wrapping="true" text="{about>blank}" />
+										<Label wrapping="true" textAlign="Center" text="{about>hospitalName}"/>
+										<Label wrapping="true" textAlign="Center" text="{about>hospitalLocation}"/>
+										<Label wrapping="true" text="{about>blank}"/>
+										<Label wrapping="true" textAlign="Center" text="{about>version}"/>
+										<Label wrapping="true" textAlign="Center" text="{about>contact}"/>
+									</VBox>
+								</CustomListItem>
+							</items>
+						</List>
 					</content>
 				</Page>
 			</pages>
