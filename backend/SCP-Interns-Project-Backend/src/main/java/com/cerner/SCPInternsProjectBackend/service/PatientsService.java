@@ -20,7 +20,6 @@ public class PatientsService {
 	}
 
 	public PatientsDto getAllPatients() throws JsonParseException, JsonMappingException, IOException {
-		ObjectMapper mapper = new ObjectMapper();
-		return mapper.readValue(getPatientsFile(), PatientsDto.class);
+		return new ObjectMapper().readValue(getPatientsFile(), PatientsDto.class);
 	}
 }
