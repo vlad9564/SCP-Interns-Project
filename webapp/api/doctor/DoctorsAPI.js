@@ -4,7 +4,7 @@ sap.ui.define([], function () {
     return {
 
         getDoctors: function () {
-            return $.ajax('./api/doctor/Doctors.json', {})
+            return $.ajax('http://localhost:8080/doctors', {})
         },
     };
 });
