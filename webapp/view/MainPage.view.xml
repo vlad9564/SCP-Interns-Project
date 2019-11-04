@@ -17,19 +17,20 @@
 						</Bar>
 					</customHeader>
 					<content>
-
-
 						<HBox>
-
 							<VBox>
 								<HBox>
 									<Text class="headerList globalMargin" textAlign="Center" text="Patient List"/>
 								</HBox>
 								<HBox>
 									<List items="{path: 'patientList>/Patients'}" class="listSizing globalMargin">
-										<CustomListItem type="Navigation">
-											<CheckBox text="{patientList>id} {patientList>firstName} {patientList>lastName}" selected="false" valueState="Information"/>
+										<CustomListItem type="Active">
+											<VBox>
+												<CheckBox text="{patientList>id} {patientList>firstName} {patientList>lastName}" selected="false" valueState="Information"/>
+											</VBox>
+											<Button text="Info" class="sapUiSmallMarginBottom" press="onShowPatientDetails" width="250px"/>
 										</CustomListItem>
+
 									</List>
 								</HBox>
 							</VBox>
@@ -47,6 +48,7 @@
 												<VBox>
 													<CheckBox text="{doctors>lastName} {doctors>firstName}" selected="false" valueState="Information"/>
 												</VBox>
+												<Button text="Info" class="sapUiSmallMarginBottom" press="onShowDoctorDetails" width="250px"/>
 											</CustomListItem>
 										</items>
 									</List>
