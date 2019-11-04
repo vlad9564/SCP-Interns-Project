@@ -2,8 +2,8 @@ sap.ui.define(['sap/ui/core/mvc/Controller',
 	'sap/ui/model/json/JSONModel',
 	"com/cerner/interns/SAPUI5_Demo/model/models",
 	'com/cerner/interns/SAPUI5_Demo/api/doctor/DoctorsAPI',
-	'com/cerner/interns/SAPUI5_Demo/api/patientApi',
-	'com/cerner/interns/SAPUI5_Demo/api/aboutApi'
+	'com/cerner/interns/SAPUI5_Demo/api/patient/patientApi',
+	'com/cerner/interns/SAPUI5_Demo/api/about/aboutApi'
 ], function (Controller, JSONModel, models, DoctorsAPI, PatientApi, AboutApi) {
 	'use strict';
 	return Controller.extend('com.cerner.interns.SAPUI5_Demo.controller.MainPage', {
