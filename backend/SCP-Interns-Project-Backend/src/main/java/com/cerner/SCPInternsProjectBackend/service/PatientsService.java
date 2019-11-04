@@ -7,19 +7,19 @@ import java.io.IOException;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ResourceUtils;
 
-import com.cerner.SCPInternsProjectBackend.model.DoctorsDto;
+import com.cerner.SCPInternsProjectBackend.model.PatientsDto;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
-public class DoctorsService {
-	
-	private File getDoctorsFile() throws FileNotFoundException {
-		return ResourceUtils.getFile("classpath:doctors.json");
+public class PatientsService {
+
+	private File getPatientsFile() throws FileNotFoundException {
+		return ResourceUtils.getFile("classpath:patients.json");
 	}
-	
-	public DoctorsDto getAllDoctors() throws JsonParseException, JsonMappingException, IOException {
-		return new ObjectMapper().readValue(getDoctorsFile(), DoctorsDto.class);
+
+	public PatientsDto getAllPatients() throws JsonParseException, JsonMappingException, IOException {
+		return new ObjectMapper().readValue(getPatientsFile(), PatientsDto.class);
 	}
 }
