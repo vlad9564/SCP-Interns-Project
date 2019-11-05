@@ -3,9 +3,8 @@
 .listSizing {
 	width: 25rem !important;
 	overflow: scroll;
-	height: 30rem;
+	height: 28rem;
 }
-
 .globalMargin {
 	margin: 0rem 4rem;
 }
@@ -61,13 +60,13 @@
 	border-left: 0px solid skyblue;
 }
 .linkButton {
-	width: 9rem !important;
-	margin: 0rem 33rem;
+	width: 7rem !important;
+	margin: 0.5rem 30rem;
 }
 
 .infoButton {
 	width: 5rem !important;
-	margin: 0rem 3rem;
+	margin: 0rem 0rem 0rem 15rem;
 }
 .tileLayout {
 	float: left;

@@ -32,14 +32,15 @@
 
 										<CustomListItem type="Active" press="onSelectedPatient">
 											<VBox>
-												<Label text="{patientList>firstName}" />
-												<Label text="{patientList>lastName}"/>
-
+												<HBox>
+													<Label text="{patientList>firstName} {patientList>lastName}" />
+												</HBox>
+												<HBox>
+													<Label text="{selectedDoctor>id}"/>
+													<Button text="Info" class="sapUiSmallMarginBottom infoButton" press="onShowPatientDetails" width="250px"/>
+												</HBox>
 											</VBox>
-											<Label text="{selectedDoctor>id}"/>
-											<Button text="Info" class="sapUiSmallMarginBottom infoButton" press="onShowPatientDetails" width="250px"/>
 										</CustomListItem>
-
 									</List>
 								</HBox>
 							</VBox>
@@ -52,14 +53,14 @@
 									<List id="doctorsList" class="listSizing globalMargin" items="{doctors>/Doctors}">
 										<items>
 											<CustomListItem type="Navigation" press="onSelectedDoctor">
-												<HBox>
-													<VBox>
-														<Label text="{doctors>lastName}"/>
-														<Label text="{doctors>firstName}"/>
-													</VBox>
-
-													<Button text="Info" class="sapUiSmallMarginBottom infoButton" press="onShowDoctorDetails" width="250px"/>
-												</HBox>
+												<VBox>
+													<HBox>
+														<Label text="{doctors>lastName} {doctors>firstName}"/>
+													</HBox>
+													<HBox>
+														<Button text="Info" class="sapUiSmallMarginBottom infoButton" press="onShowDoctorDetails" width="250px"/>
+													</HBox>
+												</VBox>
 
 											</CustomListItem>
 										</items>
