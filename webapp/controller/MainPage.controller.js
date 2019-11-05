@@ -35,29 +35,29 @@ sap.ui.define(
 				let oPacientModel = models.createPacientModel();
 				this.getView().setModel(oPacientModel, 'patientList');
 
-				// let aDoctors;
-				// await DoctorsAPI.getDoctors().then(function(oResult) {
-				// 	if (oResult) {
-				// 		aDoctors = oResult;
-				// 	}
-				// });
-				// console.log(aDoctors);
+				let aDoctors;
+				await DoctorsAPI.getDoctors().then(function(oResult) {
+					if (oResult) {
+						aDoctors = oResult;
+					}
+				});
+				console.log(aDoctors);
 
-				// let aPatients;
-				// await PatientApi.getPatients().then(function(oResult) {
-				// 	if (oResult) {
-				// 		aPatients = oResult;
-				// 	}
-				// });
-				// console.log(aPatients);
+				let aPatients;
+				await PatientApi.getPatients().then(function(oResult) {
+					if (oResult) {
+						aPatients = oResult;
+					}
+				});
+				console.log(aPatients);
 
-				// let aAbout;
-				// await AboutApi.getAbout().then(function(result) {
-				// 	if (result) {
-				// 		aAbout = result;
-				// 	}
-				// });
-				// console.log(aAbout);
+				let aAbout;
+				await AboutApi.getAbout().then(function(result) {
+					if (result) {
+						aAbout = result;
+					}
+				});
+				console.log(aAbout);
 
 				this.getView().getModel(models.createEmptyDoctorModel, 'selectedDoctor');
 
