@@ -16,6 +16,10 @@ sap.ui.define(['sap/ui/core/mvc/Controller',
 			this.getView().setModel(oDoctorModel, "doctors");
 			var oModel = new JSONModel(this._data);
 			this.getView().setModel(oModel, 'systemDate');
+			let oAboutModel = models.loadAbout();
+			this.getView().setModel(oAboutModel, "about");
+			const aboutSection = this.getView().byId("aboutList");
+			aboutSection.setVisible(true);
 
 			let aDoctors;
 			await DoctorsAPI.getDoctors().then(function (oResult) {
@@ -46,6 +50,15 @@ sap.ui.define(['sap/ui/core/mvc/Controller',
 			let currentDoctorPath = oEvent.getSource().getBindingContextPath("doctors");
 			return this.getView().getModel("doctors").getProperty(currentDoctorPath);
 		},
+		onAbout: function (oEvent) {
+			const aboutSection = this.getView().byId("aboutList");
+			if (aboutSection.getVisible()) {
+				aboutSection.setVisible(false);
+			}
+			else {
+				aboutSection.setVisible(true);
+			}
+		}
 
 
 	});

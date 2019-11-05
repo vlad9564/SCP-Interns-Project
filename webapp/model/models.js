@@ -5,6 +5,9 @@ sap.ui.define([
 	"use strict";
 
 	return {
+		loadAbout: function () {
+			return new JSONModel("model/about.json");
+		},
 
 		createDeviceModel: function () {
 			var oModel = new JSONModel(Device);
