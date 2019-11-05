@@ -52,7 +52,7 @@
 								<HBox>
 									<List id="doctorsList" class="listSizing globalMargin" items="{doctors>/Doctors}">
 										<items>
-											<CustomListItem type="Navigation" press="onSelectedDoctor">
+											<CustomListItem type="Active" press="onSelectedDoctor">
 												<VBox>
 													<HBox>
 														<Label text="{doctors>lastName} {doctors>firstName}"/>
