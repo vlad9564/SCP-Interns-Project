@@ -35,9 +35,6 @@
                                         </GenericTile>
                                     </HBox>
                                 </VBox>
-                                <!-- <VBox id="idForImage">
-                                    Here will be the place where the image will be loaded
-                                </VBox> -->
                             </HBox>
                         </VBox>
                     </content>
