@@ -1,30 +1,58 @@
-sap.ui.define([ 'sap/ui/model/json/JSONModel', 'sap/ui/Device' ], function(JSONModel, Device) {
-	'use strict';
+sap.ui.define(
+	[
+		'sap/ui/model/json/JSONModel',
+		'sap/ui/Device',
+		'com/cerner/interns/SAPUI5_Demo/api/doctor/DoctorsAPI',
+		'com/cerner/interns/SAPUI5_Demo/api/patientApi',
+		'com/cerner/interns/SAPUI5_Demo/api/aboutApi'
+	],
+	function(JSONModel, Device, DoctorsAPI, PatientApi, AboutApi) {
+		'use strict';
 
-	return {
-		loadAbout: function() {
-			return new JSONModel('model/about.json');
-		},
+		return {
+			createDeviceModel: function() {
+				var oModel = new JSONModel(Device);
+				oModel.setDefaultBindingMode('OneWay');
+				return oModel;
+			},
+			createDoctorModel: async () => {
+				let aDoctors;
+				await DoctorsAPI.getDoctors().then(function(oResult) {
+					if (oResult) {
+						aDoctors = oResult;
+					}
+				});
 
-		createDeviceModel: function() {
-			var oModel = new JSONModel(Device);
-			oModel.setDefaultBindingMode('OneWay');
-			return oModel;
-		},
-		createDoctorModel: () => {
-			return new JSONModel('model/Doctor.json');
-		},
+				return new JSONModel(aDoctors);
+			},
 
-		createPacientModel: () => {
-			return new JSONModel('model/Patient.json');
-		},
+			createPacientModel: async () => {
+				let aPatients;
+				await PatientApi.getPatients().then(function(oResult) {
+					if (oResult) {
+						aPatients = oResult;
+					}
+				});
+				return new JSONModel(aPatients);
+			},
 
-		createSelectedDoctorModel: () => {
-			return new JSONModel('model/SelectedDoctor.json');
-		},
+			createAboutModel: async () => {
+				let aAbout;
+				await AboutApi.getAbout().then(function(result) {
+					if (result) {
+						aAbout = result;
+					}
+				});
 
-		createEmptyDoctorModel: () => {
-			return new JSONModel('model/DoctorModel.json');
-		}
-	};
-});
+				return new JSONModel(aAbout);
+			},
+			createSelectedDoctorModel: () => {
+				return new JSONModel('model/SelectedDoctor.json');
+			},
+
+			createEmptyDoctorModel: () => {
+				return new JSONModel('model/DoctorModel.json');
+			}
+		};
+	}
+);

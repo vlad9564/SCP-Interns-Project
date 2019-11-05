@@ -3,13 +3,10 @@ sap.ui.define(
 		'sap/ui/core/mvc/Controller',
 		'sap/ui/model/json/JSONModel',
 		'com/cerner/interns/SAPUI5_Demo/model/models',
-		'com/cerner/interns/SAPUI5_Demo/api/doctor/DoctorsAPI',
-		'com/cerner/interns/SAPUI5_Demo/api/patientApi',
-		'com/cerner/interns/SAPUI5_Demo/api/aboutApi',
 		'sap/m/MessageBox',
 		'sap/ui/model/resource/ResourceModel'
 	],
-	function(Controller, JSONModel, models, DoctorsAPI, PatientApi, AboutApi, MessageBox, ResourceModel) {
+	function(Controller, JSONModel, models, MessageBox, ResourceModel) {
 		'use strict';
 		var doctor;
 		var patient;
@@ -19,8 +16,9 @@ sap.ui.define(
 			},
 
 			onInit: async function(evt) {
-				var oDoctorModel = models.createDoctorModel();
+				var oDoctorModel = await models.createDoctorModel();
 				this.getView().setModel(oDoctorModel, 'doctors');
+				debugger;
 				var oModel = new JSONModel(this._data);
 				this.getView().setModel(oModel, 'systemDate');
 				var i18nModel = new ResourceModel({
@@ -32,32 +30,8 @@ sap.ui.define(
 				const aboutSection = this.getView().byId('aboutList');
 				aboutSection.setVisible(true);
 
-				let oPacientModel = models.createPacientModel();
+				let oPacientModel = await models.createPacientModel();
 				this.getView().setModel(oPacientModel, 'patientList');
-
-				let aDoctors;
-				await DoctorsAPI.getDoctors().then(function(oResult) {
-					if (oResult) {
-						aDoctors = oResult;
-					}
-				});
-				console.log(aDoctors);
-
-				let aPatients;
-				await PatientApi.getPatients().then(function(oResult) {
-					if (oResult) {
-						aPatients = oResult;
-					}
-				});
-				console.log(aPatients);
-
-				let aAbout;
-				await AboutApi.getAbout().then(function(result) {
-					if (result) {
-						aAbout = result;
-					}
-				});
-				console.log(aAbout);
 
 				this.getView().getModel(models.createEmptyDoctorModel, 'selectedDoctor');
 
@@ -118,16 +92,11 @@ sap.ui.define(
 			onSelectedDoctor: function(oEvent) {
 				let currentDoctorPath = oEvent.getSource().getBindingContextPath('doctors');
 				doctor = this.getView().getModel('doctors').getProperty(currentDoctorPath);
-				debugger;
-				// this.getView().setModel(b, "selectedDoctor");
 			},
 			onSelectedPatient: function(oEvent) {
 				let currentPatientPath = oEvent.getSource().getBindingContextPath('patientList');
 
 				patient = this.getView().getModel('patientList').getProperty(currentPatientPath);
-
-				debugger;
-				// this.getView().setModel(a.getProperty(id), "patientId");
 			},
 			dialogShow: function() {
 				MessageBox.warning(this.getView().getModel('i18n').getProperty('titleMessage'), {
@@ -135,12 +104,7 @@ sap.ui.define(
 					actions: [ MessageBox.Action.YES, MessageBox.Action.NO ],
 					onClose: function(sAction) {
 						if (sAction === MessageBox.Action.YES) {
-							console.log('Yes');
 							patient.doctor = doctor;
-							debugger;
-						}
-						if (sAction === MessageBox.Action.NO) {
-							console.log('No');
 						}
 					}
 				});
