@@ -24,13 +24,21 @@
 						<HBox>
 							<VBox>
 								<HBox>
-									<Text class="headerList globalMargin" textAlign="Center" text="Patient List"/>
+									<Text class="headerList globalMargin" textAlign="Center" text="Patients List"/>
 								</HBox>
 								<HBox>
 									<List items="{path: 'patientList>/Patients'}" class="listSizing globalMargin">
-										<CustomListItem type="Navigation">
-											<CheckBox text="{patientList>id} {patientList>firstName} {patientList>lastName}" selected="false" valueState="Information"/>
+		
+										<CustomListItem type="Active" press="onSelectedPatient">
+											<VBox>
+											<Label text="{patientList>firstName}" />
+											<Label text="{patientList>lastName}"/>
+
+											</VBox>
+											<Label text="{selectedDoctor>id}"/>
+											<Button  text="Info" class="sapUiSmallMarginBottom infoButton" press="onShowPatientDetails" width="250px"/>
 										</CustomListItem>
+
 									</List>
 								</HBox>
 							</VBox>
@@ -43,9 +51,15 @@
 									<List id="doctorsList" class="listSizing globalMargin" items="{doctors>/Doctors}">
 										<items>
 											<CustomListItem type="Active" press="onSelectedDoctor">
+												<HBox>
 												<VBox>
-													<CheckBox text="{doctors>lastName} {doctors>firstName}" selected="false" valueState="Information"/>
-												</VBox>
+											<Label text="{doctors>lastName}"/>
+											<Label text="{doctors>firstName}"/>
+											</VBox>
+											
+												<Button text="Info" class="sapUiSmallMarginBottom infoButton" press="onShowDoctorDetails" width="250px"/>
+												</HBox>
+											
 											</CustomListItem>
 										</items>
 									</List>
@@ -71,6 +85,10 @@
 								</CustomListItem>
 							</items>
 						</List>
+						<HBox>
+						<Button class="linkButton" text="Link" press=".dialogShow" />
+						</HBox>
+
 					</content>
 				</Page>
 			</pages>
