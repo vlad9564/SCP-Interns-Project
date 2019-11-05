@@ -60,3 +60,12 @@
 	transform: translateX(-259px);
 	border-left: 0px solid skyblue;
 }
+.linkButton {
+	width: 9rem !important;
+	margin: 0rem 33rem;
+}
+
+.infoButton {
+	width: 5rem !important;
+	margin: 0rem 3rem;
+}

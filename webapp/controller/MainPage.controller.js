@@ -11,6 +11,8 @@ sap.ui.define(
 	],
 	function(Controller, JSONModel, models, DoctorsAPI, PatientApi, AboutApi, MessageBox, ResourceModel) {
 		'use strict';
+		var doctor;
+		var patient;
 		return Controller.extend('com.cerner.interns.SAPUI5_Demo.controller.MainPage', {
 			_data: {
 				dtValue: new Date()
@@ -30,33 +32,102 @@ sap.ui.define(
 				const aboutSection = this.getView().byId('aboutList');
 				aboutSection.setVisible(true);
 
-				let aDoctors;
-				await DoctorsAPI.getDoctors().then(function(oResult) {
-					if (oResult) {
-						aDoctors = oResult;
-					}
-				});
-				console.log(aDoctors);
+				let oPacientModel = models.createPacientModel();
+				this.getView().setModel(oPacientModel, 'patientList');
 
-				let aPatients;
-				await PatientApi.getPatients().then(function(oResult) {
-					if (oResult) {
-						aPatients = oResult;
-					}
-				});
-				console.log(aPatients);
+				// let aDoctors;
+				// await DoctorsAPI.getDoctors().then(function(oResult) {
+				// 	if (oResult) {
+				// 		aDoctors = oResult;
+				// 	}
+				// });
+				// console.log(aDoctors);
 
-				let aAbout;
-				await AboutApi.getAbout().then(function(result) {
-					if (result) {
-						aAbout = result;
+				// let aPatients;
+				// await PatientApi.getPatients().then(function(oResult) {
+				// 	if (oResult) {
+				// 		aPatients = oResult;
+				// 	}
+				// });
+				// console.log(aPatients);
+
+				// let aAbout;
+				// await AboutApi.getAbout().then(function(result) {
+				// 	if (result) {
+				// 		aAbout = result;
+				// 	}
+				// });
+				// console.log(aAbout);
+
+				this.getView().getModel(models.createEmptyDoctorModel, 'selectedDoctor');
+
+				let patientId = {
+					id: ''
+				};
+
+				this.getView().setModel(patientId, 'patientId');
+			},
+			onShowPatientDetails: function(oEvent) {
+				let currentPatientPath = oEvent.getSource().getBindingContext('patientList');
+				const patientFirstName = this.getView()
+					.getModel('patientList')
+					.getProperty('firstName', currentPatientPath);
+				const patientLastName = this.getView()
+					.getModel('patientList')
+					.getProperty('lastName', currentPatientPath);
+				const patientId = this.getView().getModel('patientList').getProperty('id', currentPatientPath);
+				const patientAge = this.getView().getModel('patientList').getProperty('age', currentPatientPath);
+				const patientDoctor = this.getView().getModel('patientList').getProperty('doctor', currentPatientPath);
+
+				const bCompact = !!this.getView().$().closest('.sapUiSizeCompact').length;
+				MessageBox.information(
+					`Detailed information about patient
+					Id: ${patientId}
+					First Name : ${patientFirstName}
+					Last Name : ${patientLastName}
+					Age : ${patientAge}
+					Assigned Doctor: ${patientDoctor.firstName} ${patientDoctor.lastName}`,
+					{
+						styleClass: bCompact ? 'sapUiSizeCompact' : ''
 					}
-				});
-				console.log(aAbout);
+				);
+			},
+			onShowDoctorDetails: function(oEvent) {
+				let currentDoctorPath = oEvent.getSource().getBindingContext('doctors');
+				const doctorFirstName = this.getView().getModel('doctors').getProperty('firstName', currentDoctorPath);
+				const doctorLastName = this.getView().getModel('doctors').getProperty('lastName', currentDoctorPath);
+				const doctorId = this.getView().getModel('doctors').getProperty('id', currentDoctorPath);
+				const doctorAge = this.getView().getModel('doctors').getProperty('age', currentDoctorPath);
+				const doctorDepartment = this.getView()
+					.getModel('doctors')
+					.getProperty('department', currentDoctorPath);
+
+				const bCompact = !!this.getView().$().closest('.sapUiSizeCompact').length;
+				MessageBox.information(
+					`Detailed information about doctor
+					Id: ${doctorId}
+					First Name : ${doctorFirstName}
+					Last Name : ${doctorLastName}
+					Age : ${doctorAge}
+					Department: ${doctorDepartment}`,
+					{
+						styleClass: bCompact ? 'sapUiSizeCompact' : ''
+					}
+				);
 			},
 			onSelectedDoctor: function(oEvent) {
 				let currentDoctorPath = oEvent.getSource().getBindingContextPath('doctors');
-				return this.getView().getModel('doctors').getProperty(currentDoctorPath);
+				doctor = this.getView().getModel('doctors').getProperty(currentDoctorPath);
+				debugger;
+				// this.getView().setModel(b, "selectedDoctor");
+			},
+			onSelectedPatient: function(oEvent) {
+				let currentPatientPath = oEvent.getSource().getBindingContextPath('patientList');
+
+				patient = this.getView().getModel('patientList').getProperty(currentPatientPath);
+
+				debugger;
+				// this.getView().setModel(a.getProperty(id), "patientId");
 			},
 			dialogShow: function() {
 				MessageBox.warning(this.getView().getModel('i18n').getProperty('titleMessage'), {
@@ -65,6 +136,8 @@ sap.ui.define(
 					onClose: function(sAction) {
 						if (sAction === MessageBox.Action.YES) {
 							console.log('Yes');
+							patient.doctor = doctor;
+							debugger;
 						}
 						if (sAction === MessageBox.Action.NO) {
 							console.log('No');
