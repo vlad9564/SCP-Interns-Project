@@ -78,12 +78,18 @@ paths:
         description: "Patient id that need to be updated"
         required: true
         type: "string"
-      - name: "doctorId"
-        in: "query"
-        description: "Doctor id that is going to be assigned to a patient "
+       
+      - in: "body"
+        name: "body"
+        description: "Doctor for patient"
         required: true
-        type: "string"
+        schema:
+          $ref: "#/definitions/DoctorDto"
       responses:
+        200: 
+          description: "successfull operation"
+          schema: 
+            $ref: "#/definitions/PatientDto"
         400:
           description: "Invalid user supplied"
         404:

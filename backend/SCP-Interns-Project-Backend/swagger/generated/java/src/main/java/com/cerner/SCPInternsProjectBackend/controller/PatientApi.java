@@ -5,7 +5,6 @@
  */
 package com.cerner.SCPInternsProjectBackend.controller;
 
-import com.cerner.SCPInternsProjectBackend.model.DoctorDto;
 import com.cerner.SCPInternsProjectBackend.model.DoctorsDto;
 import com.cerner.SCPInternsProjectBackend.model.PatientDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -57,7 +56,7 @@ public interface PatientApi {
     @RequestMapping(value = "/patient",
         produces = { "application/json" }, 
         method = RequestMethod.PUT)
-    default ResponseEntity<PatientDto> updatePatient(@NotNull @ApiParam(value = "Patient id that need to be updated", required = true) @Valid @RequestParam(value = "patientId", required = true) String patientId,@ApiParam(value = "Doctor for patient" ,required=true )  @Valid @RequestBody DoctorDto body) {
+    default ResponseEntity<PatientDto> updatePatient(@NotNull @ApiParam(value = "Patient id that need to be updated", required = true) @Valid @RequestParam(value = "patientId", required = true) String patientId,@ApiParam(value = "Doctor for patient" ,required=true )  @Valid @RequestBody DoctorsDto body) {
         if(getObjectMapper().isPresent() && getAcceptHeader().isPresent()) {
             if (getAcceptHeader().get().contains("application/json")) {
                 try {

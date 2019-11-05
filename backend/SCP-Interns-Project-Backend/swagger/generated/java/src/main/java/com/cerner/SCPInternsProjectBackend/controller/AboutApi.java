@@ -5,9 +5,7 @@
  */
 package com.cerner.SCPInternsProjectBackend.controller;
 
-import com.cerner.SCPInternsProjectBackend.model.DoctorDto;
-import com.cerner.SCPInternsProjectBackend.model.DoctorsDto;
-import com.cerner.SCPInternsProjectBackend.model.PatientDto;
+import com.cerner.SCPInternsProjectBackend.model.AboutDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.annotations.*;
 import org.slf4j.Logger;
@@ -31,10 +29,10 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
-@Api(value = "patient", description = "the patient API")
-public interface PatientApi {
+@Api(value = "about", description = "the about API")
+public interface AboutApi {
 
-    Logger log = LoggerFactory.getLogger(PatientApi.class);
+    Logger log = LoggerFactory.getLogger(AboutApi.class);
 
     default Optional<ObjectMapper> getObjectMapper() {
         return Optional.empty();
@@ -48,27 +46,26 @@ public interface PatientApi {
         return getRequest().map(r -> r.getHeader("Accept"));
     }
 
-    @ApiOperation(value = "Updated patient", nickname = "updatePatient", notes = "Update used to assing a patient to a doctor", response = PatientDto.class, tags={ "patient", })
+    @ApiOperation(value = "Get about", nickname = "getAbout", notes = "Get about", response = AboutDto.class, tags={ "about", })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "successfull operation", response = PatientDto.class),
-        @ApiResponse(code = 400, message = "Invalid user supplied"),
-        @ApiResponse(code = 404, message = "Patient not found"),
+        @ApiResponse(code = 200, message = "successful operation", response = AboutDto.class),
+        @ApiResponse(code = 400, message = "Invalid status value"),
         @ApiResponse(code = 500, message = "Internal server error") })
-    @RequestMapping(value = "/patient",
+    @RequestMapping(value = "/about",
         produces = { "application/json" }, 
-        method = RequestMethod.PUT)
-    default ResponseEntity<PatientDto> updatePatient(@NotNull @ApiParam(value = "Patient id that need to be updated", required = true) @Valid @RequestParam(value = "patientId", required = true) String patientId,@ApiParam(value = "Doctor for patient" ,required=true )  @Valid @RequestBody DoctorDto body) {
+        method = RequestMethod.GET)
+    default ResponseEntity<AboutDto> getAbout() {
         if(getObjectMapper().isPresent() && getAcceptHeader().isPresent()) {
             if (getAcceptHeader().get().contains("application/json")) {
                 try {
-                    return new ResponseEntity<>(getObjectMapper().get().readValue("\"\"", PatientDto.class), HttpStatus.NOT_IMPLEMENTED);
+                    return new ResponseEntity<>(getObjectMapper().get().readValue("\"\"", AboutDto.class), HttpStatus.NOT_IMPLEMENTED);
                 } catch (IOException e) {
                     log.error("Couldn't serialize response for content type application/json", e);
                     return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
                 }
             }
         } else {
-            log.warn("ObjectMapper or HttpServletRequest not configured in default PatientApi interface so no example is generated");
+            log.warn("ObjectMapper or HttpServletRequest not configured in default AboutApi interface so no example is generated");
         }
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
     }
