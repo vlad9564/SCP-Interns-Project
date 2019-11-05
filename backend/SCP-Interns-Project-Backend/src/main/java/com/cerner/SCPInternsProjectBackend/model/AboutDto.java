@@ -26,7 +26,7 @@ public class AboutDto implements JSONTranslatable {
 	private String hospitalLocation = null;
 
 	@JsonProperty("version")
-	private Integer version = null;
+	private String version = null;
 
 	@JsonProperty("contact")
 	private String contact = null;
@@ -107,7 +107,7 @@ public class AboutDto implements JSONTranslatable {
 		this.hospitalLocation = hospitalLocation;
 	}
 
-	public AboutDto version(Integer version) {
+	public AboutDto version(String version) {
 		this.version = version;
 		return this;
 	}
@@ -118,11 +118,11 @@ public class AboutDto implements JSONTranslatable {
 	 * @return version
 	 **/
 
-	public Integer getVersion() {
+	public String getVersion() {
 		return version;
 	}
 
-	public void setVersion(Integer version) {
+	public void setVersion(String version) {
 		this.version = version;
 	}
 
