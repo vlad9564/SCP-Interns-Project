@@ -58,22 +58,18 @@ public interface PatientApi {
         produces = { "application/json" }, 
         method = RequestMethod.PUT)
     default ResponseEntity<PatientDto> updatePatient(@NotNull @ApiParam(value = "Patient id that need to be updated", required = true) @Valid @RequestParam(value = "patientId", required = true) String patientId,@ApiParam(value = "Doctor for patient" ,required=true )  @Valid @RequestBody DoctorDto body) {
-        System.out.println("ce plm faci?");
-    	if(getObjectMapper().isPresent() && getAcceptHeader().isPresent()) {
+        if(getObjectMapper().isPresent() && getAcceptHeader().isPresent()) {
             if (getAcceptHeader().get().contains("application/json")) {
                 try {
-                	System.out.println("aa");
                     return new ResponseEntity<>(getObjectMapper().get().readValue("\"\"", PatientDto.class), HttpStatus.NOT_IMPLEMENTED);
                 } catch (IOException e) {
                     log.error("Couldn't serialize response for content type application/json", e);
-                    System.out.println("plm");
                     return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
                 }
             }
         } else {
             log.warn("ObjectMapper or HttpServletRequest not configured in default PatientApi interface so no example is generated");
         }
-        System.out.println("cool");
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
     }
 

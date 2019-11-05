@@ -35,7 +35,6 @@ public class PatientService {
 
 		PatientDto patient = this.findPatientById(patientId);
 		patient.setDoctor(body);
-//		System.out.println(patient);
 		return patient;
 	}
 }
