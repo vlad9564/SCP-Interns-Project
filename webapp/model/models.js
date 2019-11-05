@@ -41,6 +41,7 @@ sap.ui.define(
 				await AboutApi.getAbout().then(function(result) {
 					if (result) {
 						aAbout = result;
+						debugger;
 					}
 				});
 

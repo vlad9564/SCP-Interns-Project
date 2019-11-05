@@ -21,17 +21,18 @@ sap.ui.define(
 				debugger;
 				var oModel = new JSONModel(this._data);
 				this.getView().setModel(oModel, 'systemDate');
+
+				var oPacientModel = await models.createPacientModel();
+				this.getView().setModel(oPacientModel, 'patientList');
 				var i18nModel = new ResourceModel({
 					bundleName: 'com.cerner.interns.SAPUI5_Demo.i18n.i18n'
 				});
 				this.getView().setModel(i18nModel, 'i18n');
-				let oAboutModel = models.loadAbout();
+
+				var oAboutModel = await models.createAboutModel();
 				this.getView().setModel(oAboutModel, 'about');
 				const aboutSection = this.getView().byId('aboutList');
 				aboutSection.setVisible(true);
-
-				let oPacientModel = await models.createPacientModel();
-				this.getView().setModel(oPacientModel, 'patientList');
 
 				this.getView().getModel(models.createEmptyDoctorModel, 'selectedDoctor');
 
