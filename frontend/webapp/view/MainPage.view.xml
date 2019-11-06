@@ -18,7 +18,7 @@
 							</contentMiddle>
 							<contentRight>
 								<Text text="{path: 'systemDate>/dtValue',type: 'sap.ui.model.type.DateTime',formatOptions: {style: 'short'}}" />
-								<Button id="aboutButton" icon="sap-icon://hint" press="onAbout"/>
+								<Button class="aboutButton" id="aboutButton" icon="sap-icon://hint" press="onAbout"/>
 							</contentRight>
 						</Bar>
 					</customHeader>

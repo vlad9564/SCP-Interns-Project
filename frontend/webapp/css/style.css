@@ -38,7 +38,14 @@
 	right: 7px;
 	top: 2px;
 }
-
+.aboutButton{
+	animation: blinker 3s ease-in-out infinite;
+}
+@keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }
 .about {
 	height: 50px;
 	width: 50px;
