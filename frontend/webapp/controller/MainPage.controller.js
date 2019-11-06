@@ -17,20 +17,20 @@ sap.ui.define(
 			},
 
 			onInit: async function (evt) {
-				var oDoctorModel = await models.createDoctorModel();
+				const oDoctorModel = await models.createDoctorModel();
 				this.getView().setModel(oDoctorModel, 'doctors');
 				debugger;
-				var oModel = new JSONModel(this._data);
+				const oModel = new JSONModel(this._data);
 				this.getView().setModel(oModel, 'systemDate');
 
-				var oPacientModel = await models.createPacientModel();
+				const oPacientModel = await models.createPacientModel();
 				this.getView().setModel(oPacientModel, 'patientList');
-				var i18nModel = new ResourceModel({
+				const i18nModel = new ResourceModel({
 					bundleName: 'com.cerner.interns.SAPUI5_Demo.i18n.i18n'
 				});
 				this.getView().setModel(i18nModel, 'i18n');
 
-				var oAboutModel = await models.createAboutModel();
+				const oAboutModel = await models.createAboutModel();
 				this.getView().setModel(oAboutModel, 'about');
 				const aboutSection = this.getView().byId('aboutList');
 				aboutSection.setVisible(true);
@@ -44,7 +44,7 @@ sap.ui.define(
 				this.getView().setModel(patientId, 'patientId');
 			},
 			onShowPatientDetails: function (oEvent) {
-				let currentPatientPath = oEvent.getSource().getBindingContext('patientList');
+				const currentPatientPath = oEvent.getSource().getBindingContext('patientList');
 				const patientFirstName = this.getView()
 					.getModel('patientList')
 					.getProperty('firstName', currentPatientPath);
@@ -69,7 +69,7 @@ sap.ui.define(
 				);
 			},
 			onShowDoctorDetails: function (oEvent) {
-				let currentDoctorPath = oEvent.getSource().getBindingContext('doctors');
+				const currentDoctorPath = oEvent.getSource().getBindingContext('doctors');
 				const doctorFirstName = this.getView().getModel('doctors').getProperty('firstName', currentDoctorPath);
 				const doctorLastName = this.getView().getModel('doctors').getProperty('lastName', currentDoctorPath);
 				const doctorId = this.getView().getModel('doctors').getProperty('id', currentDoctorPath);
@@ -92,12 +92,11 @@ sap.ui.define(
 				);
 			},
 			onSelectedDoctor: function (oEvent) {
-				let currentDoctorPath = oEvent.getSource().getBindingContextPath('doctors');
+				const currentDoctorPath = oEvent.getSource().getBindingContextPath('doctors');
 				doctor = this.getView().getModel('doctors').getProperty(currentDoctorPath);
 			},
 			onSelectedPatient: function (oEvent) {
-				let currentPatientPath = oEvent.getSource().getBindingContextPath('patientList');
-
+				const currentPatientPath = oEvent.getSource().getBindingContextPath('patientList');
 				patient = this.getView().getModel('patientList').getProperty(currentPatientPath);
 			},
 			dialogShow: function () {

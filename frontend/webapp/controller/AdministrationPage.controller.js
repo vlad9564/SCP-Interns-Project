@@ -10,7 +10,7 @@ sap.ui.define([
             },
 
             onInit: function (evt) {
-                var oModel = new JSONModel(this._data);
+                const oModel = new JSONModel(this._data);
                 this.getView().setModel(oModel, 'systemDate');
             },
             onNavigationBack: function () {

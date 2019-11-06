@@ -3,7 +3,9 @@ sap.ui.define([], function () {
 
     return {
         getAbout: function () {
-            return $.ajax('./api/about/about.json', {})
+            return $.ajax('./api/about/About.json', {}).done(function (response) {
+                return response;
+            });
         }
     };
 });

@@ -11,17 +11,9 @@ sap.ui.define([
             },
 
             onInit: function (evt) {
-                var oModel = new JSONModel(this._data);
+                const oModel = new JSONModel(this._data);
                 this.getView().setModel(oModel, 'systemDate');
-                // this._loadPictureAndSetInContent();
             },
-
-            // _loadPictureAndSetInContent: function () {
-            //     const oHtml = new HTML();
-            //     oHtml.setContent("<div> <img src='sap-icon://activity-individual'/> </div>");
-            //     const oVBox = this.getView().byId("idForImage");
-            //     oVBox.addItem(oHtml);
-            // },
             onOpenAppointmentPage: function (oEvent) {
                 let oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                 oRouter.navTo("AppointmentPage");
