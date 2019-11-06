@@ -21,13 +21,13 @@
 
 .list-align {
 	position: absolute;
-	right: 7px;
-	width: 100px;
-	bottom: 180px;
+	right: 1rem;
+	width: 7rem;
+	bottom: 11rem;
 }
 
 .list-align:hover {
-	border: 3px solid skyblue;
+	border: 0.2rem solid skyblue;
 	transition: all 1s ease-in;
 	transition-duration: 1s;
 	transition-timing-function: linear;
@@ -35,8 +35,8 @@
 
 .button-align {
 	position: absolute;
-	right: 7px;
-	top: 2px;
+	right: 0.5rem;
+	top: 0.1rem;
 }
 .aboutButton{
 	animation: blinker 3s ease-in-out infinite;
@@ -47,28 +47,28 @@
     }
   }
 .about {
-	height: 50px;
-	width: 50px;
-	margin: 0 40px;
+	height: 3rem;
+	width: 3rem;
+	margin: 0 2.5rem;
 	transition: transform 0.5s linear;
 	position: absolute;
-	right: -280px;
-	bottom: 400px;
-	border-left: 20px solid skyblue;
+	right: -17.5rem;
+	bottom: 25rem;
+	border-left: 1.3rem solid skyblue;
 }
 
 .about:hover {
 	cursor: pointer;
-	border-left: 0px solid skyblue;
+	border-left: 0rem solid skyblue;
 }
 
 .aboutShow:hover {
-	transform: translateX(-259px);
-	border-left: 0px solid skyblue;
+	transform: translateX(-16rem);
+	border-left: 0rem solid skyblue;
 }
 .linkButton {
 	width: 7rem !important;
-	margin: 0.5rem 30rem;
+	margin: 0.5rem 29.5rem;
 }
 
 .infoButton {

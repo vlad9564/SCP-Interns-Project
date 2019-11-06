@@ -3,7 +3,7 @@ sap.ui.define([], function () {
 
     return {
         getPatients: function () {
-            return $.ajax('./api/patients.json', {})
+            return $.ajax('./api/patient/patients.json', {})
         }
     };
 });
