@@ -1,0 +1,97 @@
+<mvc:View controllerName="com.cerner.interns.SAPUI5_Demo.controller.MainPage" 
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
+	xmlns="sap.m" 
+	xmlns:l="sap.ui.layout">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page title="Title">
+					<customHeader>
+						<Bar>
+							<contentLeft>
+								<Image src="images/CernerLogo.png" height="20px" />
+							</contentLeft>
+							<contentMiddle>
+								<Text text="Pacients Assignment"/>
+							</contentMiddle>
+							<contentRight>
+								<Text text="{path: 'systemDate>/dtValue',type: 'sap.ui.model.type.DateTime',formatOptions: {style: 'short'}}" />
+								<Button id="aboutButton" icon="sap-icon://hint" press="onAbout"/>
+							</contentRight>
+						</Bar>
+					</customHeader>
+					<content>
+						<HBox>
+							<VBox>
+								<HBox>
+									<Text class="headerList globalMargin" textAlign="Center" text="Patients List"/>
+								</HBox>
+								<HBox>
+									<List items="{path: 'patientList>/Patients'}" class="listSizing globalMargin">
+		
+										<CustomListItem type="Active" press="onSelectedPatient">
+											<VBox>
+											<Label text="{patientList>firstName}" />
+											<Label text="{patientList>lastName}"/>
+
+											</VBox>
+											<Label text="{selectedDoctor>id}"/>
+											<Button  text="Info" class="sapUiSmallMarginBottom infoButton" press="onShowPatientDetails" width="250px"/>
+										</CustomListItem>
+
+									</List>
+								</HBox>
+							</VBox>
+
+							<VBox>
+								<HBox>
+									<Text class="headerList globalMargin" textAlign="Center" text="Doctors List"/>
+								</HBox>
+								<HBox>
+									<List id="doctorsList" class="listSizing globalMargin" items="{doctors>/Doctors}">
+										<items>
+											<CustomListItem type="Active" press="onSelectedDoctor">
+												<HBox>
+												<VBox>
+											<Label text="{doctors>lastName}"/>
+											<Label text="{doctors>firstName}"/>
+											</VBox>
+											
+												<Button text="Info" class="sapUiSmallMarginBottom infoButton" press="onShowDoctorDetails" width="250px"/>
+												</HBox>
+											
+											</CustomListItem>
+										</items>
+									</List>
+								</HBox>
+							</VBox>
+						</HBox>
+
+						<List id="aboutList" width="20%" class="about aboutShow" items="{about>/About}">
+							<items id="items">
+								<CustomListItem id="customList">
+									<ImageContent src="sap-icon://database" />
+									<VBox class="sapUiSmallMarginBeginEnd sapUiSmallMarginBottom textAlign" id="VBox">
+										<Label wrapping="true" textAlign="Center" text="{about>title}"/>
+										<Label wrapping="true" text="{about>blank}"/>
+										<Label wrapping="true" wrappingType="Hyphenated" textAlign="Center" text="{about>description}"/>
+										<Label wrapping="true" text="{about>blank}" />
+										<Label wrapping="true" textAlign="Center" text="{about>hospitalName}"/>
+										<Label wrapping="true" textAlign="Center" text="{about>hospitalLocation}"/>
+										<Label wrapping="true" text="{about>blank}"/>
+										<Label wrapping="true" textAlign="Center" text="{about>version}"/>
+										<Label wrapping="true" textAlign="Center" text="{about>contact}"/>
+									</VBox>
+								</CustomListItem>
+							</items>
+						</List>
+						<HBox>
+						<Button class="linkButton" text="Link" press=".dialogShow" />
+						</HBox>
+
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

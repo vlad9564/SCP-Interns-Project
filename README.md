@@ -1,2 +1,2 @@
 # SCP-Interns-Project
-Basic app for students 
+SCP Patient Administration App

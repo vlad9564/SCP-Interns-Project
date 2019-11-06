@@ -1,0 +1,98 @@
+swagger: '2.0'
+info:
+  title: REST API PATTOR
+  version: 1.1.0
+schemes:
+  - https
+
+paths:
+  /patients:
+    get:
+      tags:
+      - "patients"
+      summary: "Get all patients"
+      description: "Get all patients"
+      operationId: "getAllPatients"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/PatientsDto"
+        400:
+          description: "Invalid status value"
+        500:
+          description: "Internal server error"
+
+  /doctors:
+    get:
+      tags:
+      - "doctors"
+      summary: "Get all doctors"
+      description: "Get all doctors"
+      operationId: "getAllDoctors"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/DoctorsDto"
+        400:
+          description: "Invalid status value"
+        500:
+          description: "Internal server error"
+
+  /about:
+    get:
+      tags:
+      - "about"
+      summary: "Get about"
+      description: "Get about"
+      operationId: "getAbout"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/AboutDto"
+        400:
+          description: "Invalid status value"
+        500:
+          description: "Internal server error"
+          
+  /patient:
+    put:
+      tags:
+      - "patient"
+      summary: "Updated patient"
+      description: "Update used to assing a patient to a doctor"
+      operationId: "updatePatient"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "patientId"
+        in: "query"
+        description: "Patient id that need to be updated"
+        required: true
+        type: "string"
+       
+      - in: "body"
+        name: "body"
+        description: "Doctor for patient"
+        required: true
+        schema:
+          $ref: "#/definitions/DoctorDto"
+      responses:
+        200: 
+          description: "successfull operation"
+          schema: 
+            $ref: "#/definitions/PatientDto"
+        400:
+          description: "Invalid user supplied"
+        404:
+          description: "Patient not found"
+        500:
+          description: "Internal server error"

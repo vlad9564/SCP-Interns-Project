@@ -1,0 +1,9 @@
+{
+  "basePackage": "notneeded",
+  "apiPackage": "com.cerner.SCPInternsProjectBackend.controller",
+  "modelPackage": "com.cerner.SCPInternsProjectBackend.model",
+  "invokerPackage": "notneeded",
+  "configPackage": "notneeded",
+  "hideGenerationTimestamp" : true,
+  "dateLibrary": "java8-localdatetime"
+}
