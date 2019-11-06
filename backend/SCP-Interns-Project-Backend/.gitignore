@@ -32,4 +32,4 @@ build/
 
 ### Generated file ###
 
-.swagger/generated
+backend\SCP-Interns-Project-Backend\swagger\generated
