@@ -3,21 +3,21 @@ sap.ui.define(
 		'sap/ui/model/json/JSONModel',
 		'sap/ui/Device',
 		'com/cerner/interns/SAPUI5_Demo/api/doctor/DoctorsAPI',
-		'com/cerner/interns/SAPUI5_Demo/api/patientApi',
-		'com/cerner/interns/SAPUI5_Demo/api/aboutApi'
+		'com/cerner/interns/SAPUI5_Demo/api/patient/patientApi',
+		'com/cerner/interns/SAPUI5_Demo/api/about/aboutApi'
 	],
-	function(JSONModel, Device, DoctorsAPI, PatientApi, AboutApi) {
+	function (JSONModel, Device, DoctorsAPI, PatientApi, AboutApi) {
 		'use strict';
 
 		return {
-			createDeviceModel: function() {
+			createDeviceModel: function () {
 				var oModel = new JSONModel(Device);
 				oModel.setDefaultBindingMode('OneWay');
 				return oModel;
 			},
 			createDoctorModel: async () => {
 				let aDoctors;
-				await DoctorsAPI.getDoctors().then(function(oResult) {
+				await DoctorsAPI.getDoctors().then(function (oResult) {
 					if (oResult) {
 						aDoctors = oResult;
 					}
@@ -28,7 +28,7 @@ sap.ui.define(
 
 			createPacientModel: async () => {
 				let aPatients;
-				await PatientApi.getPatients().then(function(oResult) {
+				await PatientApi.getPatients().then(function (oResult) {
 					if (oResult) {
 						aPatients = oResult;
 					}
@@ -38,7 +38,7 @@ sap.ui.define(
 
 			createAboutModel: async () => {
 				let aAbout;
-				await AboutApi.getAbout().then(function(result) {
+				await AboutApi.getAbout().then(function (result) {
 					if (result) {
 						aAbout = result;
 						debugger;

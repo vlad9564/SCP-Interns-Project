@@ -1,0 +1,48 @@
+<mvc:View controllerName="com.cerner.interns.SAPUI5_Demo.controller.MainClinicalPage" 
+    xmlns="sap.m" 
+    xmlns:mvc="sap.ui.core.mvc">
+    <Shell id="shell">
+        <App id="app">
+            <pages>
+                <Page title="Title">
+                    <customHeader>
+                        <Bar>
+                            <contentLeft>
+                                <Image src="images/CernerLogo.png" height="1.25rem" press="onNavigationBack"/>
+                            </contentLeft>
+                            <contentMiddle>
+                                <Text text="Patients Assignment"/>
+                            </contentMiddle>
+                            <contentRight>
+                                <Text text="{path: 'systemDate>/dtValue',type: 'sap.ui.model.type.DateTime',formatOptions: {style: 'short'}}" />
+                            </contentRight>
+                        </Bar>
+                    </customHeader>
+                    <content>
+
+                        <VBox class="cardsStyle">
+                            <HBox>
+                                <VBox>
+                                    <HBox>
+                                        <GenericTile class="cardLayout sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Administration" subheader="Subheader" press="onOpenAdministrationPage">
+                                            <TileContent footer="Click here to go on Administration Page">
+                                                <ImageContent src="sap-icon://key-user-settings" />
+                                            </TileContent>
+                                        </GenericTile>
+
+
+                                        <GenericTile class="cardLayout sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Appointment" subheader="Subheader" press="onOpenAppointmentPage">
+                                            <TileContent footer="Click here to go on Appointment Page">
+                                                <ImageContent src="sap-icon://appointment" />
+                                            </TileContent>
+                                        </GenericTile>
+                                    </HBox>
+                                </VBox>
+                            </HBox>
+                        </VBox>
+                    </content>
+                </Page>
+            </pages>
+        </App>
+    </Shell>
+</mvc:View>

@@ -1,6 +1,7 @@
 <mvc:View controllerName="com.cerner.interns.SAPUI5_Demo.controller.MainPage" 
 	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
 	xmlns="sap.m" 
+	xmlns:core="sap.ui.core" 
 	xmlns:l="sap.ui.layout">
 	<Shell id="shell">
 		<App id="app">
@@ -9,14 +10,15 @@
 					<customHeader>
 						<Bar>
 							<contentLeft>
-								<Image src="images/CernerLogo.png" height="20px" />
+								<Button icon="sap-icon://nav-back" press="onNavigationBack"/>
+								<Image src="images/CernerLogo.png" height="1.25rem"/>
 							</contentLeft>
 							<contentMiddle>
-								<Text text="Pacients Assignment"/>
+								<Text text="Patients Assignment"/>
 							</contentMiddle>
 							<contentRight>
 								<Text text="{path: 'systemDate>/dtValue',type: 'sap.ui.model.type.DateTime',formatOptions: {style: 'short'}}" />
-								<Button id="aboutButton" icon="sap-icon://hint" press="onAbout"/>
+								<Button class="aboutButton" id="aboutButton" icon="sap-icon://hint" press="onAbout"/>
 							</contentRight>
 						</Bar>
 					</customHeader>
@@ -28,17 +30,18 @@
 								</HBox>
 								<HBox>
 									<List items="{path: 'patientList>/Patients'}" class="listSizing globalMargin">
-		
+
 										<CustomListItem type="Active" press="onSelectedPatient">
 											<VBox>
-											<Label text="{patientList>firstName}" />
-											<Label text="{patientList>lastName}"/>
-
+												<HBox>
+													<Label text="{patientList>firstName} {patientList>lastName}" />
+												</HBox>
+												<HBox>
+													<Label text="{selectedDoctor>id}"/>
+													<core:Icon src="sap-icon://notes" class="sapUiSmallMarginBottom infoButton" press="onShowPatientDetails" />
+												</HBox>
 											</VBox>
-											<Label text="{selectedDoctor>id}"/>
-											<Button  text="Info" class="sapUiSmallMarginBottom infoButton" press="onShowPatientDetails" width="250px"/>
 										</CustomListItem>
-
 									</List>
 								</HBox>
 							</VBox>
@@ -51,15 +54,15 @@
 									<List id="doctorsList" class="listSizing globalMargin" items="{doctors>/Doctors}">
 										<items>
 											<CustomListItem type="Active" press="onSelectedDoctor">
-												<HBox>
 												<VBox>
-											<Label text="{doctors>lastName}"/>
-											<Label text="{doctors>firstName}"/>
-											</VBox>
-											
-												<Button text="Info" class="sapUiSmallMarginBottom infoButton" press="onShowDoctorDetails" width="250px"/>
-												</HBox>
-											
+													<HBox>
+														<Label text="{doctors>lastName} {doctors>firstName}"/>
+													</HBox>
+													<HBox>
+														<core:Icon src="sap-icon://notes" class="sapUiSmallMarginBottom infoButton" press="onShowDoctorDetails"/>
+													</HBox>
+												</VBox>
+
 											</CustomListItem>
 										</items>
 									</List>
@@ -86,7 +89,7 @@
 							</items>
 						</List>
 						<HBox>
-						<Button class="linkButton" text="Link" press=".dialogShow" />
+							<Button class="linkButton" text="Link" press=".dialogShow" />
 						</HBox>
 
 					</content>

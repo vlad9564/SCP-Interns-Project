@@ -1,0 +1,29 @@
+<mvc:View controllerName="com.cerner.interns.SAPUI5_Demo.controller.AdministrationPage" 
+    xmlns="sap.m" 
+    xmlns:mvc="sap.ui.core.mvc">
+    <Shell id="shell">
+        <App id="app">
+            <pages>
+                <Page title="Title">
+                    <customHeader>
+                        <Bar>
+                            <contentLeft>
+                                <Button icon="sap-icon://nav-back" press="onNavigationBack"/>
+                                <Image src="images/CernerLogo.png" height="1.25rem" press="onNavigationBack"/>
+                            </contentLeft>
+                            <contentMiddle>
+                                <Text text="Patients Assignment"/>
+                            </contentMiddle>
+                            <contentRight>
+                                <Text text="{path: 'systemDate>/dtValue',type: 'sap.ui.model.type.DateTime',formatOptions: {style: 'short'}}" />
+                            </contentRight>
+                        </Bar>
+                    </customHeader>
+                    <content>
+
+                    </content>
+                </Page>
+            </pages>
+        </App>
+    </Shell>
+</mvc:View>
