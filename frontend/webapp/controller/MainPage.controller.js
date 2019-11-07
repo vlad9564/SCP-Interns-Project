@@ -5,21 +5,27 @@ sap.ui.define(
 		'com/cerner/interns/SAPUI5_Demo/model/models',
 		'sap/m/MessageBox',
 		'sap/ui/model/resource/ResourceModel',
-		"sap/ui/core/UIComponent"
+		'sap/ui/core/UIComponent'
 	],
-	function (Controller, JSONModel, models, MessageBox, ResourceModel, UIComponent) {
+	function(Controller, JSONModel, models, MessageBox, ResourceModel, UIComponent) {
 		'use strict';
-		var doctor;
-		var patient;
+
 		return Controller.extend('com.cerner.interns.SAPUI5_Demo.controller.MainPage', {
 			_data: {
 				dtValue: new Date()
 			},
 
-			onInit: async function (evt) {
+			onInit: async function(evt) {
+				let myModel = new JSONModel({
+					Doctor: [ { id: '', firstName: '', lastName: '', age: '', deparment: '' } ],
+					Patient: [ { id: '', firstName: '', lastName: '', age: '', doctor: '' } ]
+				});
+
+				this.getView().setModel(myModel, 'myModel');
+
 				const oDoctorModel = await models.createDoctorModel();
 				this.getView().setModel(oDoctorModel, 'doctors');
-				debugger;
+
 				const oModel = new JSONModel(this._data);
 				this.getView().setModel(oModel, 'systemDate');
 
@@ -43,8 +49,9 @@ sap.ui.define(
 
 				this.getView().setModel(patientId, 'patientId');
 			},
-			onShowPatientDetails: function (oEvent) {
+			onShowPatientDetails: function(oEvent) {
 				const currentPatientPath = oEvent.getSource().getBindingContext('patientList');
+				const PatientModification = oEvent.getSource().getBindingContext('myModel');
 				const patientFirstName = this.getView()
 					.getModel('patientList')
 					.getProperty('firstName', currentPatientPath);
@@ -53,22 +60,42 @@ sap.ui.define(
 					.getProperty('lastName', currentPatientPath);
 				const patientId = this.getView().getModel('patientList').getProperty('id', currentPatientPath);
 				const patientAge = this.getView().getModel('patientList').getProperty('age', currentPatientPath);
-				const patientDoctor = this.getView().getModel('patientList').getProperty('doctor', currentPatientPath);
 
-				const bCompact = !!this.getView().$().closest('.sapUiSizeCompact').length;
-				MessageBox.information(
-					`Detailed information about patient
+				debugger;
+				const patientDoctorFirstName = this.getView().getModel('myModel').getData()[0].selectedDoctor.firstName;
+				const patientDoctorLastName = this.getView().getModel('myModel').getData()[0].selectedDoctor.lastName;
+				const selectedPatientId = this.getView().getModel('myModel').getData()[1].selectedPatient.id;
+				debugger;
+
+				if (selectedPatientId === patientId) {
+					const bCompact = !!this.getView().$().closest('.sapUiSizeCompact').length;
+					MessageBox.information(
+						`Detailed information about patient
 					Id: ${patientId}
 					First Name : ${patientFirstName}
 					Last Name : ${patientLastName}
 					Age : ${patientAge}
-					Assigned Doctor: ${patientDoctor.firstName} ${patientDoctor.lastName}`,
-					{
-						styleClass: bCompact ? 'sapUiSizeCompact' : ''
-					}
-				);
+					Assigned Doctor: ${patientDoctorFirstName} ${patientDoctorLastName} `,
+						{
+							styleClass: bCompact ? 'sapUiSizeCompact' : ''
+						}
+					);
+				} else {
+					const bCompact = !!this.getView().$().closest('.sapUiSizeCompact').length;
+					MessageBox.information(
+						`Detailed information about patient
+					Id: ${patientId}
+					First Name : ${patientFirstName}
+					Last Name : ${patientLastName}
+					Age : ${patientAge}
+					Assigned Doctor: ${patientFirstName} ${patientLastName} `,
+						{
+							styleClass: bCompact ? 'sapUiSizeCompact' : ''
+						}
+					);
+				}
 			},
-			onShowDoctorDetails: function (oEvent) {
+			onShowDoctorDetails: function(oEvent) {
 				const currentDoctorPath = oEvent.getSource().getBindingContext('doctors');
 				const doctorFirstName = this.getView().getModel('doctors').getProperty('firstName', currentDoctorPath);
 				const doctorLastName = this.getView().getModel('doctors').getProperty('lastName', currentDoctorPath);
@@ -91,26 +118,48 @@ sap.ui.define(
 					}
 				);
 			},
-			onSelectedDoctor: function (oEvent) {
+			onSelectedDoctor: function(oEvent) {
 				const currentDoctorPath = oEvent.getSource().getBindingContextPath('doctors');
-				doctor = this.getView().getModel('doctors').getProperty(currentDoctorPath);
+				let selectedDoctor = this.getView().getModel('doctors').getProperty(currentDoctorPath);
+				debugger;
+
+				// let modelDoctor = this.getView().getModel('myModel');
+				// modelDoctor = modelDoctor.oData;
+				// modelDoctor = { selectedDoctor };
+				debugger;
+				this.getView().getModel('myModel').setData(selectedDoctor);
+				debugger;
 			},
-			onSelectedPatient: function (oEvent) {
+			onSelectedPatient: function(oEvent) {
 				const currentPatientPath = oEvent.getSource().getBindingContextPath('patientList');
-				patient = this.getView().getModel('patientList').getProperty(currentPatientPath);
+				let selectedPatient = this.getView().getModel('patientList').getProperty(currentPatientPath);
+
+				let modelPatient = this.getView().getModel('myModel');
+				let selectedDoctor = modelPatient.oData;
+				let PatientDoctor = [ { selectedDoctor }, { selectedPatient } ];
+
+				this.getView().getModel('myModel').setData(PatientDoctor);
+
+				debugger;
 			},
-			dialogShow: function () {
+			dialogShow: function() {
+				let a = this.getView().getModel('myModel');
 				MessageBox.warning(this.getView().getModel('i18n').getProperty('titleMessage'), {
 					title: this.getView().getModel('i18n').getProperty('titleMessageBox'),
-					actions: [MessageBox.Action.YES, MessageBox.Action.NO],
-					onClose: function (sAction) {
+					actions: [ MessageBox.Action.YES, MessageBox.Action.NO ],
+
+					onClose: function(sAction) {
 						if (sAction === MessageBox.Action.YES) {
-							patient.doctor = doctor;
+							let b = a;
+							b.getData()[1].selectedPatient.doctor = b.getData()[0].selectedDoctor.firstName;
+
+							debugger;
 						}
 					}
 				});
+				debugger;
 			},
-			onAbout: function (oEvent) {
+			onAbout: function(oEvent) {
 				const aboutSection = this.getView().byId('aboutList');
 				if (aboutSection.getVisible()) {
 					aboutSection.setVisible(false);
@@ -118,9 +167,9 @@ sap.ui.define(
 					aboutSection.setVisible(true);
 				}
 			},
-			onNavigationBack: function () {
+			onNavigationBack: function() {
 				let oRouter = UIComponent.getRouterFor(this);
-				oRouter.navTo("RouteMainClinicalPage", true);
+				oRouter.navTo('RouteMainClinicalPage', true);
 			}
 		});
 	}
