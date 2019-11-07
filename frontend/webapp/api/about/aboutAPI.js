@@ -3,7 +3,7 @@ sap.ui.define([], function () {
 
     return {
         getAbout: function () {
-            return $.ajax('./api/about/About.json', {}).done(function (response) {
+            return $.ajax('http://localhost:8080/about', {}).done(function (response) {
                 return response;
             });
         }

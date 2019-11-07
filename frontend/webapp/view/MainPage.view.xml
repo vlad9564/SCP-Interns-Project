@@ -29,7 +29,7 @@
 									<Text class="headerList globalMargin" textAlign="Center" text="Patients List"/>
 								</HBox>
 								<HBox>
-									<List items="{path: 'patientList>/Patients'}" class="listSizing globalMargin">
+									<List items="{path: 'patientList>/'}" class="listSizing globalMargin">
 
 										<CustomListItem type="Active" press="onSelectedPatient">
 											<VBox>
@@ -51,7 +51,7 @@
 									<Text class="headerList globalMargin" textAlign="Center" text="Doctors List"/>
 								</HBox>
 								<HBox>
-									<List id="doctorsList" class="listSizing globalMargin" items="{doctors>/Doctors}">
+									<List id="doctorsList" class="listSizing globalMargin" items="{doctors>/}">
 										<items>
 											<CustomListItem type="Active" press="onSelectedDoctor">
 												<VBox>

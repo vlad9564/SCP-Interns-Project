@@ -50,6 +50,9 @@ sap.ui.define(
 			createSelectedDoctorModel: () => {
 				return new JSONModel('model/SelectedDoctor.json');
 			},
+			updatePatient: async function (patientId, oDoctor) {
+				await PatientApi.updatePatient(patientId, oDoctor);
+			},
 
 			createEmptyDoctorModel: () => {
 				return new JSONModel('model/DoctorModel.json');
