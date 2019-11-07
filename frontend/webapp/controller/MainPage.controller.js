@@ -44,6 +44,8 @@ sap.ui.define(
 				const aboutSection = this.getView().byId('aboutList');
 				aboutSection.setVisible(true);
 
+				debugger;
+
 				this.getView().getModel(models.createEmptyDoctorModel, 'selectedDoctor');
 
 				let patientId = {
@@ -164,7 +166,7 @@ sap.ui.define(
 					actions: [MessageBox.Action.YES, MessageBox.Action.NO],
 					onClose: async function (sAction) {
 						if (sAction === MessageBox.Action.YES) {
-							console.log(doctor);
+							debugger;
 							await models.updatePatient(patient.id, doctor);
 >>>>>>> Modified apis with backend URL
 						}

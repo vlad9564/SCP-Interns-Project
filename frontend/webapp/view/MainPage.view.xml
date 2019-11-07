@@ -70,20 +70,20 @@
 							</VBox>
 						</HBox>
 
-						<List id="aboutList" width="20%" class="about aboutShow" items="{about>/About}">
+						<List id="aboutList" width="20%" class="about aboutShow" item="{path: 'about>/'}">
 							<items id="items">
 								<CustomListItem id="customList">
 									<ImageContent src="sap-icon://database" />
 									<VBox class="sapUiSmallMarginBeginEnd sapUiSmallMarginBottom textAlign" id="VBox">
-										<Label wrapping="true" textAlign="Center" text="{about>title}"/>
-										<Label wrapping="true" text="{about>blank}"/>
-										<Label wrapping="true" wrappingType="Hyphenated" textAlign="Center" text="{about>description}"/>
-										<Label wrapping="true" text="{about>blank}" />
-										<Label wrapping="true" textAlign="Center" text="{about>hospitalName}"/>
-										<Label wrapping="true" textAlign="Center" text="{about>hospitalLocation}"/>
-										<Label wrapping="true" text="{about>blank}"/>
-										<Label wrapping="true" textAlign="Center" text="{about>version}"/>
-										<Label wrapping="true" textAlign="Center" text="{about>contact}"/>
+										<Label wrapping="true" textAlign="Center" text="{about>/title}"/>
+										<!-- <Label wrapping="true" text="{about>blank}"/> -->
+										<Label wrapping="true" wrappingType="Hyphenated" textAlign="Center" text="{about>/description}"/>
+										<!-- <Label wrapping="true" text="{about>blank}" /> -->
+										<Label wrapping="true" textAlign="Center" text="{about>/hospitalName}"/>
+										<Label wrapping="true" textAlign="Center" text="{about>/hospitalLocation}"/>
+										<!-- <Label wrapping="true" text="{about>blank}"/> -->
+										<Label wrapping="true" textAlign="Center" text="{about>/version}"/>
+										<Label wrapping="true" textAlign="Center" text="{about>/contact}"/>
 									</VBox>
 								</CustomListItem>
 							</items>

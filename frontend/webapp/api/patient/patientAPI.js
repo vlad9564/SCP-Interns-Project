@@ -11,18 +11,20 @@ sap.ui.define([], function () {
             });
         },
 
-        updatePatient: function (oPatient) {
+        updatePatient: function (patientId, oDoctor) {
             var settings = {
 
-                "url": `${URL}/patient?patientId=${oPatient.id}`,
+                "url": `${URL}/patient?patientId=${patientId}`,
                 "method": "PUT",
                 "headers": {
                     "Content-Type": "application/json",
                 },
-                "data": JSON.stringify(oPatient)
+                "data": JSON.stringify(oDoctor)
             }
             $.ajax(settings).done(function (response) {
                 console.log(response);
+                //console.log(status);
+                debugger;
             });
         }
     };
