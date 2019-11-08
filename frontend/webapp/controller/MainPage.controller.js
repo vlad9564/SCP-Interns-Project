@@ -53,8 +53,6 @@ sap.ui.define(
 				const aboutSection = this.getView().byId('aboutList');
 				aboutSection.setVisible(true);
 
-				debugger;
-
 				this.getView().getModel(models.createEmptyDoctorModel, 'selectedDoctor');
 
 				let patientId = {
@@ -101,7 +99,7 @@ sap.ui.define(
 					First Name : ${patientFirstName}
 					Last Name : ${patientLastName}
 					Age : ${patientAge}
-					Assigned Doctor: ${doctorFirstName} ${doctortLastName} `, {
+					Assigned Doctor: ${doctorFirstName} ${doctorLasttName} `, {
 							styleClass: bCompact ? 'sapUiSizeCompact' : ''
 						}
 					);
@@ -157,14 +155,18 @@ sap.ui.define(
 
 				debugger;
 			},
-			dialogShow: async function () {
+			dialogShow: function () {
+				let a = this.getView().getModel('myModel');
 				MessageBox.warning(this.getView().getModel('i18n').getProperty('titleMessage'), {
 					title: this.getView().getModel('i18n').getProperty('titleMessageBox'),
 					actions: [MessageBox.Action.YES, MessageBox.Action.NO],
-					onClose: async function (sAction) {
+
+					onClose: function (sAction) {
 						if (sAction === MessageBox.Action.YES) {
+							let b = a;
+							b.getData()[1].selectedPatient.doctor = b.getData()[0].selectedDoctor.firstName;
+
 							debugger;
-							await models.updatePatient(patient.id, doctor);
 						}
 					}
 				});
