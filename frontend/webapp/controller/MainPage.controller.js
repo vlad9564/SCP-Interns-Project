@@ -85,8 +85,8 @@ sap.ui.define(
 					Last Name : ${patientLastName}
 					Age : ${patientAge}
 					Assigned Doctor: ${patientDoctorFirstName} ${patientDoctorLastName} `, {
-						styleClass: bCompact ? 'sapUiSizeCompact' : ''
-					}
+							styleClass: bCompact ? 'sapUiSizeCompact' : ''
+						}
 					);
 				} else {
 					const bCompact = !!this.getView().$().closest('.sapUiSizeCompact').length;
@@ -96,9 +96,9 @@ sap.ui.define(
 					First Name : ${patientFirstName}
 					Last Name : ${patientLastName}
 					Age : ${patientAge}
-					Assigned Doctor: ${doctorFirstName} ${doctortLastName} `, {
-						styleClass: bCompact ? 'sapUiSizeCompact' : ''
-					}
+					Assigned Doctor: ${doctorFirstName} ${doctorLasttName} `, {
+							styleClass: bCompact ? 'sapUiSizeCompact' : ''
+						}
 					);
 				}
 			},
@@ -120,8 +120,8 @@ sap.ui.define(
 					Last Name : ${doctorLastName}
 					Age : ${doctorAge}
 					Department: ${doctorDepartment}`, {
-					styleClass: bCompact ? 'sapUiSizeCompact' : ''
-				}
+						styleClass: bCompact ? 'sapUiSizeCompact' : ''
+					}
 				);
 			},
 			onSelectedDoctor: function (oEvent) {
@@ -144,11 +144,13 @@ sap.ui.define(
 
 				this.getView().getModel('myModel').setData(PatientDoctor);
 			},
-			dialogShow: async function () {
+			dialogShow: function () {
+				let a = this.getView().getModel('myModel');
 				MessageBox.warning(this.getView().getModel('i18n').getProperty('titleMessage'), {
 					title: this.getView().getModel('i18n').getProperty('titleMessageBox'),
 					actions: [MessageBox.Action.YES, MessageBox.Action.NO],
-					onClose: async function (sAction) {
+
+					onClose: function (sAction) {
 						if (sAction === MessageBox.Action.YES) {
 							await models.updatePatient(patient.id, doctor);
 						}
