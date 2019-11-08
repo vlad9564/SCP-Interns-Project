@@ -41,7 +41,6 @@ sap.ui.define(
 				await AboutApi.getAbout().then(function (result) {
 					if (result) {
 						aAbout = result;
-						debugger;
 					}
 				});
 
@@ -49,6 +48,9 @@ sap.ui.define(
 			},
 			createSelectedDoctorModel: () => {
 				return new JSONModel('model/SelectedDoctor.json');
+			},
+			updatePatient: async function (patientId, oDoctor) {
+				await PatientApi.updatePatient(patientId, oDoctor);
 			},
 
 			createEmptyDoctorModel: () => {
