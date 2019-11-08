@@ -17,18 +17,27 @@ sap.ui.define(
 
 			onInit: async function (evt) {
 				let myModel = new JSONModel({
-					Doctor: [{ id: '', firstName: '', lastName: '', age: '', deparment: '' }],
-					Patient: [{ id: '', firstName: '', lastName: '', age: '', doctor: '' }]
+					Doctor: [{
+						id: '',
+						firstName: '',
+						lastName: '',
+						age: '',
+						deparment: ''
+					}],
+					Patient: [{
+						id: '',
+						firstName: '',
+						lastName: '',
+						age: '',
+						doctor: ''
+					}]
 				});
 
 				this.getView().setModel(myModel, 'myModel');
 
 				const oDoctorModel = await models.createDoctorModel();
 				this.getView().setModel(oDoctorModel, 'doctors');
-<<<<<<< HEAD
 
-=======
->>>>>>> Modified apis with backend URL
 				const oModel = new JSONModel(this._data);
 				this.getView().setModel(oModel, 'systemDate');
 
@@ -80,8 +89,7 @@ sap.ui.define(
 					First Name : ${patientFirstName}
 					Last Name : ${patientLastName}
 					Age : ${patientAge}
-					Assigned Doctor: ${patientDoctorFirstName} ${patientDoctorLastName} `,
-						{
+					Assigned Doctor: ${patientDoctorFirstName} ${patientDoctorLastName} `, {
 							styleClass: bCompact ? 'sapUiSizeCompact' : ''
 						}
 					);
@@ -93,8 +101,7 @@ sap.ui.define(
 					First Name : ${patientFirstName}
 					Last Name : ${patientLastName}
 					Age : ${patientAge}
-					Assigned Doctor: ${doctorFirstName} ${doctortLastName} `,
-						{
+					Assigned Doctor: ${doctorFirstName} ${doctortLastName} `, {
 							styleClass: bCompact ? 'sapUiSizeCompact' : ''
 						}
 					);
@@ -118,8 +125,8 @@ sap.ui.define(
 					Last Name : ${doctorLastName}
 					Age : ${doctorAge}
 					Department: ${doctorDepartment}`, {
-					styleClass: bCompact ? 'sapUiSizeCompact' : ''
-				}
+						styleClass: bCompact ? 'sapUiSizeCompact' : ''
+					}
 				);
 			},
 			onSelectedDoctor: function (oEvent) {
@@ -140,26 +147,16 @@ sap.ui.define(
 
 				let modelPatient = this.getView().getModel('myModel');
 				let selectedDoctor = modelPatient.oData;
-				let PatientDoctor = [{ selectedDoctor }, { selectedPatient }];
+				let PatientDoctor = [{
+					selectedDoctor
+				}, {
+					selectedPatient
+				}];
 
 				this.getView().getModel('myModel').setData(PatientDoctor);
 
 				debugger;
 			},
-<<<<<<< HEAD
-			dialogShow: function () {
-				let a = this.getView().getModel('myModel');
-				MessageBox.warning(this.getView().getModel('i18n').getProperty('titleMessage'), {
-					title: this.getView().getModel('i18n').getProperty('titleMessageBox'),
-					actions: [MessageBox.Action.YES, MessageBox.Action.NO],
-
-					onClose: function (sAction) {
-						if (sAction === MessageBox.Action.YES) {
-							let b = a;
-							b.getData()[1].selectedPatient.doctor = b.getData()[0].selectedDoctor.firstName;
-
-							debugger;
-=======
 			dialogShow: async function () {
 				MessageBox.warning(this.getView().getModel('i18n').getProperty('titleMessage'), {
 					title: this.getView().getModel('i18n').getProperty('titleMessageBox'),
@@ -168,7 +165,6 @@ sap.ui.define(
 						if (sAction === MessageBox.Action.YES) {
 							debugger;
 							await models.updatePatient(patient.id, doctor);
->>>>>>> Modified apis with backend URL
 						}
 					}
 				});
