@@ -30,11 +30,12 @@ public class PatientApiController implements PatientApi {
 	private PatientService servicePatient;
 	
 	@Override
-	public ResponseEntity<PatientDto> updatePatient(@NotNull @ApiParam(value = "Patient id that need to be updated", required = true) @Valid @RequestParam(value = "patientId", required = true) String patientId,@ApiParam(value = "Doctor for patient" ,required=true )  @Valid @RequestBody DoctorDto body) {
+	public ResponseEntity<PatientDto> updatePatient(@NotNull @ApiParam(value = "Patient id that need to be updated", required = true) @Valid @RequestParam(value = "patientId", required = true) String patientId,@ApiParam(value = "Doctor for patient" ,required=true )  @Valid @RequestBody DoctorDto body){
 	
 		
 			try {
-				return ResponseEntity.ok(servicePatient.updatePatient(patientId,body));
+				String doctorId = body.getId();
+				return ResponseEntity.ok(servicePatient.updatePatient(patientId,doctorId));
 			} catch (IOException e) {
 				e.printStackTrace();
 				return null;
