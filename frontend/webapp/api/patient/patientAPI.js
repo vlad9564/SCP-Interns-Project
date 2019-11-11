@@ -22,9 +22,6 @@ sap.ui.define([], function () {
                 "data": JSON.stringify(oDoctor)
             }
             $.ajax(settings).done(function (response) {
-                console.log(response);
-                //console.log(status);
-                debugger;
             });
         }
     };
