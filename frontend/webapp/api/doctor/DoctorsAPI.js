@@ -6,7 +6,8 @@ sap.ui.define([], function () {
         getDoctors: function () {
             return $.ajax({
                 "url": "http://localhost:8080/doctors",
-            }).done(function (response) {
+            }).done(function (response, status) {
+                debugger;
                 return response;
             });
 

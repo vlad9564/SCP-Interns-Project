@@ -29,16 +29,16 @@
 									<Text class="headerList globalMargin" textAlign="Center" text="Patients List"/>
 								</HBox>
 								<HBox>
-									<List items="{path: 'patientList>/'}" class="listSizing globalMargin">
+									<List items="{path: 'patients>/'}" class="listSizing globalMargin">
 
-										<CustomListItem type="Active" press="onSelectedPatient">
+										<CustomListItem type="Active" press="onSelectedPatient(${patients>id})">
 											<VBox>
 												<HBox>
-													<Label text="{patientList>firstName} {patientList>lastName}" />
+													<Label text="{patients>firstName} {patients>lastName}" />
 												</HBox>
 												<HBox>
 													<Label text="{selectedDoctor>id}"/>
-													<core:Icon src="sap-icon://notes" class="sapUiSmallMarginBottom infoButton" press="onShowPatientDetails" />
+													<core:Icon src="sap-icon://notes" class="sapUiSmallMarginBottom infoButton" press="onShowPatientDetails(${patients>firstName}, ${patients>lastName}, ${patients>doctor})" />
 												</HBox>
 											</VBox>
 										</CustomListItem>
@@ -53,13 +53,13 @@
 								<HBox>
 									<List id="doctorsList" class="listSizing globalMargin" items="{doctors>/}">
 										<items>
-											<CustomListItem type="Active" press="onSelectedDoctor">
+											<CustomListItem type="Active" press="onSelectedDoctor(${doctors>id})">
 												<VBox>
 													<HBox>
 														<Label text="{doctors>lastName} {doctors>firstName}"/>
 													</HBox>
 													<HBox>
-														<core:Icon src="sap-icon://notes" class="sapUiSmallMarginBottom infoButton" press="onShowDoctorDetails"/>
+														<core:Icon src="sap-icon://notes" class="sapUiSmallMarginBottom infoButton" press="onShowDoctorDetails(${doctors>firstName}, ${doctors>lastName},${doctors>department})"/>
 													</HBox>
 												</VBox>
 
@@ -89,9 +89,8 @@
 							</items>
 						</List>
 						<HBox>
-							<Button class="linkButton" text="Link" press=".dialogShow" />
+							<Button class="linkButton" text="Link" press="onLinkDialogShow" />
 						</HBox>
-
 					</content>
 				</Page>
 			</pages>
