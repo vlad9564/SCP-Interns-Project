@@ -2724,7 +2724,7 @@
   <commands xmi:id="_2sC5ivy-EemyPPk2KAYK8g" elementId="org.eclipse.ui.edit.text.copyLineUp" commandName="Duplicate Lines" description="Duplicates the selected lines and leaves the selection unchanged" category="_2rtiE_y-EemyPPk2KAYK8g"/>
   <commands xmi:id="_2sC5i_y-EemyPPk2KAYK8g" elementId="org.eclipse.debug.ui.commands.ToggleMethodBreakpoint" commandName="Toggle Method Breakpoint" description="Creates or removes a method breakpoint" category="_2ruJJfy-EemyPPk2KAYK8g"/>
   <commands xmi:id="_2sDgUPy-EemyPPk2KAYK8g" elementId="org.eclipse.jdt.ui.navigate.java.open.structure" commandName="Open Structure" description="Show the structure of the selected element" category="_2ruJN_y-EemyPPk2KAYK8g"/>
-  <commands xmi:id="_2sDgUfy-EemyPPk2KAYK8g" elementId="org.eclipse.wst.jsdt.chromium.debug.js.command" commandName="Chrome / Chromium Debugger" category="_2ruJKPy-EemyPPk2KAYK8g"/>
+  <commands xmi:id="_2sDgUfy-EemyPPk2KAYK8g" elementId="org.eclipse.wst.jsdt.chromium.debug.js.command" commandName="Chrome / Chromium  " category="_2ruJKPy-EemyPPk2KAYK8g"/>
   <commands xmi:id="_2sDgUvy-EemyPPk2KAYK8g" elementId="org.eclipse.wst.jsdt.ui.correction.assignToLocal.assist" commandName="Quick Assist - Assign to local variable" description="Invokes quick assist and selects 'Assign to local variable'" category="_2rtiFfy-EemyPPk2KAYK8g"/>
   <commands xmi:id="_2sDgU_y-EemyPPk2KAYK8g" elementId="org.eclipse.ui.navigate.next" commandName="Next" description="Navigate to the next item" category="_2ruJN_y-EemyPPk2KAYK8g"/>
   <commands xmi:id="_2sDgVPy-EemyPPk2KAYK8g" elementId="org.eclipse.mylyn.tasks.bugs.commands.newTaskFromMarker" commandName="New Task from Marker..." description="Report as Bug from Marker" category="_2ruJL_y-EemyPPk2KAYK8g"/>
