@@ -1,0 +1,98 @@
+[main] WARN com.sap.di.ext.mta.cli.CliModule - Failed to detect 'mvn.cmd' falling back to 'mvn.bat'
+java.io.IOException: Cannot run program "mvn.cmd": CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessBuilder.start(Unknown Source)
+	at com.sap.di.ext.mta.cli.CliModule.provideMavenExe(CliModule.java:125)
+	at com.sap.di.ext.mta.cli.CliModule$$FastClassByGuice$$8180538d.invoke(<generated>)
+	at com.google.inject.internal.ProviderMethod$FastClassProviderMethod.doProvision(ProviderMethod.java:264)
+	at com.google.inject.internal.ProviderMethod.doProvision(ProviderMethod.java:173)
+	at com.google.inject.internal.InternalProviderInstanceBindingImpl$CyclicFactory.provision(InternalProviderInstanceBindingImpl.java:185)
+	at com.google.inject.internal.InternalProviderInstanceBindingImpl$CyclicFactory.get(InternalProviderInstanceBindingImpl.java:162)
+	at com.google.inject.internal.ProviderToInternalFactoryAdapter.get(ProviderToInternalFactoryAdapter.java:40)
+	at com.google.inject.internal.SingletonScope$1.get(SingletonScope.java:148)
+	at com.google.inject.internal.InternalFactoryToProviderAdapter.get(InternalFactoryToProviderAdapter.java:39)
+	at com.google.inject.internal.SingleParameterInjector.inject(SingleParameterInjector.java:42)
+	at com.google.inject.internal.SingleParameterInjector.getAll(SingleParameterInjector.java:65)
+	at com.google.inject.internal.ConstructorInjector.provision(ConstructorInjector.java:113)
+	at com.google.inject.internal.ConstructorInjector.construct(ConstructorInjector.java:91)
+	at com.google.inject.internal.ConstructorBindingImpl$Factory.get(ConstructorBindingImpl.java:306)
+	at com.google.inject.internal.ProviderToInternalFactoryAdapter.get(ProviderToInternalFactoryAdapter.java:40)
+	at com.google.inject.internal.SingletonScope$1.get(SingletonScope.java:148)
+	at com.google.inject.internal.InternalFactoryToProviderAdapter.get(InternalFactoryToProviderAdapter.java:39)
+	at com.google.inject.internal.FactoryProxy.get(FactoryProxy.java:62)
+	at com.google.inject.internal.SingleParameterInjector.inject(SingleParameterInjector.java:42)
+	at com.google.inject.internal.RealMultibinder$RealMultibinderProvider.doProvision(RealMultibinder.java:198)
+	at com.google.inject.internal.RealMultibinder$RealMultibinderProvider.doProvision(RealMultibinder.java:151)
+	at com.google.inject.internal.InternalProviderInstanceBindingImpl$Factory.get(InternalProviderInstanceBindingImpl.java:113)
+	at com.google.inject.internal.SingleParameterInjector.inject(SingleParameterInjector.java:42)
+	at com.google.inject.internal.SingleParameterInjector.getAll(SingleParameterInjector.java:65)
+	at com.google.inject.internal.ConstructorInjector.provision(ConstructorInjector.java:113)
+	at com.google.inject.internal.ConstructorInjector.construct(ConstructorInjector.java:91)
+	at com.google.inject.internal.ConstructorBindingImpl$Factory.get(ConstructorBindingImpl.java:306)
+	at com.google.inject.internal.ProviderToInternalFactoryAdapter.get(ProviderToInternalFactoryAdapter.java:40)
+	at com.google.inject.internal.SingletonScope$1.get(SingletonScope.java:148)
+	at com.google.inject.internal.InternalFactoryToProviderAdapter.get(InternalFactoryToProviderAdapter.java:39)
+	at com.google.inject.internal.FactoryProxy.get(FactoryProxy.java:62)
+	at com.google.inject.internal.SingleParameterInjector.inject(SingleParameterInjector.java:42)
+	at com.google.inject.internal.RealMultibinder$RealMultibinderProvider.doProvision(RealMultibinder.java:198)
+	at com.google.inject.internal.RealMultibinder$RealMultibinderProvider.doProvision(RealMultibinder.java:151)
+	at com.google.inject.internal.InternalProviderInstanceBindingImpl$Factory.get(InternalProviderInstanceBindingImpl.java:113)
+	at com.google.inject.internal.SingleParameterInjector.inject(SingleParameterInjector.java:42)
+	at com.google.inject.internal.SingleParameterInjector.getAll(SingleParameterInjector.java:65)
+	at com.google.inject.internal.ConstructorInjector.provision(ConstructorInjector.java:113)
+	at com.google.inject.internal.ConstructorInjector.construct(ConstructorInjector.java:91)
+	at com.google.inject.internal.ConstructorBindingImpl$Factory.get(ConstructorBindingImpl.java:306)
+	at com.google.inject.internal.ProviderToInternalFactoryAdapter.get(ProviderToInternalFactoryAdapter.java:40)
+	at com.google.inject.internal.SingletonScope$1.get(SingletonScope.java:148)
+	at com.google.inject.internal.InternalFactoryToProviderAdapter.get(InternalFactoryToProviderAdapter.java:39)
+	at com.google.inject.internal.SingleParameterInjector.inject(SingleParameterInjector.java:42)
+	at com.google.inject.internal.SingleParameterInjector.getAll(SingleParameterInjector.java:65)
+	at com.google.inject.internal.ConstructorInjector.provision(ConstructorInjector.java:113)
+	at com.google.inject.internal.ConstructorInjector.construct(ConstructorInjector.java:91)
+	at com.google.inject.internal.ConstructorBindingImpl$Factory.get(ConstructorBindingImpl.java:306)
+	at com.google.inject.internal.ProviderToInternalFactoryAdapter.get(ProviderToInternalFactoryAdapter.java:40)
+	at com.google.inject.internal.SingletonScope$1.get(SingletonScope.java:148)
+	at com.google.inject.internal.InternalFactoryToProviderAdapter.get(InternalFactoryToProviderAdapter.java:39)
+	at com.google.inject.internal.SingleParameterInjector.inject(SingleParameterInjector.java:42)
+	at com.google.inject.internal.SingleParameterInjector.getAll(SingleParameterInjector.java:65)
+	at com.google.inject.internal.ConstructorInjector.provision(ConstructorInjector.java:113)
+	at com.google.inject.internal.ConstructorInjector.construct(ConstructorInjector.java:91)
+	at com.google.inject.internal.ConstructorBindingImpl$Factory.get(ConstructorBindingImpl.java:306)
+	at com.google.inject.internal.ProviderToInternalFactoryAdapter.get(ProviderToInternalFactoryAdapter.java:40)
+	at com.google.inject.internal.SingletonScope$1.get(SingletonScope.java:148)
+	at com.google.inject.internal.InternalFactoryToProviderAdapter.get(InternalFactoryToProviderAdapter.java:39)
+	at com.google.inject.internal.InjectorImpl$1.get(InjectorImpl.java:1050)
+	at com.google.inject.internal.InjectorImpl.getInstance(InjectorImpl.java:1086)
+	at com.sap.di.ext.mta.cli.CliExecutor.run(CliExecutor.java:91)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.sap.di.ext.mta.cli.MtaMain.doMain(MtaMain.java:95)
+	at com.sap.di.ext.mta.cli.MtaMain.main(MtaMain.java:36)
+Caused by: java.io.IOException: CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessImpl.create(Native Method)
+	at java.lang.ProcessImpl.<init>(Unknown Source)
+	at java.lang.ProcessImpl.start(Unknown Source)
+	... 69 more
+[main] INFO com.sap.di.ext.mta.proc.DescriptorProcessorImpl - MTA manifest processing on 3 threads
+[main] INFO com.sap.di.ext.mta.cli.CliExecutor - arguments: [--build-target=CF, build]
+[main] INFO com.sap.di.ext.mta.cli.CliExecutor - Archive path is C:\Users\XI073091\Desktop\SCP\SCP-Interns-Project\SCP-Interns-Project.mtar
+[main] DEBUG com.sap.di.ext.mta.cli.CliBuildExecutor - Starting MTA build
+[main] INFO com.sap.di.beans.DynamicBeans - Created implementation class com.sap.di.ext.mta.dto.DesignDescriptor$$impl0 for bean interface com.sap.di.ext.mta.dto.DesignDescriptor
+[main] INFO com.sap.di.beans.DynamicBeans - Created implementation class com.sap.di.ext.mta.dto.DesignModule$$impl1 for bean interface com.sap.di.ext.mta.dto.DesignModule
+[main] INFO com.sap.di.beans.DynamicBeans - Created implementation class com.sap.di.ext.mta.dto.RequiredSymbol$$impl2 for bean interface com.sap.di.ext.mta.dto.RequiredSymbol
+[main] INFO com.sap.di.beans.DynamicBeans - Created implementation class com.sap.di.ext.mta.dto.Resource$$impl3 for bean interface com.sap.di.ext.mta.dto.Resource
+[main] INFO com.sap.di.ext.mta.proc.ProcessingRun - Processing MTA TestDeploy
+[main] INFO com.sap.di.beans.DynamicBeans - Created implementation class com.sap.di.ext.mta.proc.ModuleBuildDependency$$impl4 for bean interface com.sap.di.ext.mta.proc.ModuleBuildDependency
+[main] INFO com.sap.di.ext.mta.proc.ProcessingRun - Verifying MTA TestDeploy
+[main] INFO org.eclipse.che.commons.lang.concurrent.ThreadLocalPropagateContext - using a no-op implementation of interface org.eclipse.che.commons.lang.concurrent.ThreadLocalWrapper
+[main] INFO com.sap.di.ext.mta.proc.ProcessingRun - Verifying MTA TestDeploy: created 2 verification tasks
+[pool-1-thread-1] INFO com.sap.di.ext.mta.proc.ProcessingRun - Verifying MTA TestDeploy: started symbol resource[uaa_Frontend]
+[pool-1-thread-2] INFO com.sap.di.ext.mta.proc.ProcessingRun - Verifying MTA TestDeploy: started symbol module[frontend]
+[pool-1-thread-1] INFO com.sap.di.ext.mta.proc.ProcessingRun - Verifying MTA TestDeploy: finished symbol resource[uaa_Frontend]
+[pool-1-thread-2] DEBUG com.sap.di.ext.mta.cli.CommandHelper - Module 'frontend': command timeout is 300 seconds
+[pool-1-thread-2] DEBUG com.sap.di.ext.mta.cli.CommandHelper - Module 'frontend': command output file is C:\Users\XI073091\Desktop\SCP\SCP-Interns-Project\.mta\modulebuild4474807527831371791.txt
+[pool-1-thread-2] DEBUG com.sap.di.ext.mta.cli.CommandHelper - Module 'frontend': invoking command [npm.cmd, install, --production]
+[pool-1-thread-2] INFO com.sap.di.ext.mta.proc.ProcessingRun - Verifying MTA TestDeploy: finished symbol module[frontend]
+[main] INFO com.sap.di.beans.DynamicBeans - Created implementation class com.sap.di.ext.mta.dto.DeploymentDescriptor$$impl5 for bean interface com.sap.di.ext.mta.dto.DeploymentDescriptor
+[main] INFO com.sap.di.beans.DynamicBeans - Created implementation class com.sap.di.ext.mta.dto.DeploymentModule$$impl6 for bean interface com.sap.di.ext.mta.dto.DeploymentModule

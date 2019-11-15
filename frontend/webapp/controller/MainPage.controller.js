@@ -5,10 +5,10 @@ sap.ui.define(
 		'sap/m/MessageBox',
 		'sap/ui/model/resource/ResourceModel',
 		'sap/ui/core/UIComponent',
-		'../model/UpdatePatientLinkModel',
-		'../api/doctor/DoctorsApi',
-		'../api/patient/PatientApi',
-		'../api/about/AboutApi'
+		'com/cerner/interns/SAPUI5_Demo/model/UpdatePatientLinkModel',
+		'com/cerner/interns/SAPUI5_Demo/api/doctor/DoctorsApi',
+		'com/cerner/interns/SAPUI5_Demo/api/patient/PatientApi',
+		'com/cerner/interns/SAPUI5_Demo/api/about/AboutApi'
 	],
 	function (Controller, JSONModel, MessageBox, ResourceModel, UIComponent, UpdatePatientLinkModel, DoctorApi, PatientApi, AboutApi) {
 		'use strict';

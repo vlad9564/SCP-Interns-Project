@@ -1,2 +1,5 @@
 debug.log 
 backend\SCP-Interns-Project-Backend\swagger\generated
+node_modules
+mta.jar
+*.mtar
