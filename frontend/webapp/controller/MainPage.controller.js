@@ -10,16 +10,25 @@ sap.ui.define(
 		'../api/patient/PatientApi',
 		'../api/about/AboutApi'
 	],
-	function (Controller, JSONModel, MessageBox, ResourceModel, UIComponent, UpdatePatientLinkModel, DoctorApi, PatientApi, AboutApi) {
+	function(
+		Controller,
+		JSONModel,
+		MessageBox,
+		ResourceModel,
+		UIComponent,
+		UpdatePatientLinkModel,
+		DoctorApi,
+		PatientApi,
+		AboutApi
+	) {
 		'use strict';
-
 
 		return Controller.extend('com.cerner.interns.SAPUI5_Demo.controller.MainPage', {
 			_data: {
 				dtValue: new Date()
 			},
 			updatePatientLinkModel: {},
-			onInit: async function (evt) {
+			onInit: async function(evt) {
 				this.updatePatientLinkModel = new UpdatePatientLinkModel();
 
 				//doctors model
@@ -28,7 +37,7 @@ sap.ui.define(
 
 				//local doctor model
 				oDoctorModel.getData().forEach((element) => {
-					element.isSelectedForShow = false
+					element.isSelectedForShow = false;
 				});
 				this.getView().setModel(oDoctorModel, 'localDoctors');
 
@@ -42,7 +51,7 @@ sap.ui.define(
 
 				//local patients model
 				oPatientModel.getData().forEach((element) => {
-					element.isSelectedForShow = false
+					element.isSelectedForShow = false;
 				});
 				this.getView().setModel(oPatientModel, 'localPatients');
 
@@ -58,8 +67,7 @@ sap.ui.define(
 				aboutSection.setVisible(true);
 				this.getView().getModel(models.createEmptyDoctorModel, 'selectedDoctor');
 			},
-			onShowDoctorDetails: function (doctorFirstName, doctorLastName, doctorDepartment) {
-
+			onShowDoctorDetails: function(doctorFirstName, doctorLastName, doctorDepartment) {
 				MessageBox.information(
 					`Detailed information about doctor: \n
 					First Name : ${doctorFirstName}
@@ -67,29 +75,42 @@ sap.ui.define(
 					Department: ${doctorDepartment}`
 				);
 			},
+			onShowPatientDetails: function(patientFirstName, patientLastName, patientAge, patientDoctor) {
+				debugger;
+				MessageBox.information(
+					`Detailed information about doctor: \n
+					First Name : ${patientFirstName}
+					Last Name : ${patientLastName}
+					Age: ${patientAge}
+					Doctor: ${patientDoctor}`
+				);
+			},
 
-			onSelectedDoctor: function (doctorId) {
+			onSelectedDoctor: function(doctorId) {
 				this.updatePatientLinkModel.doctorId = doctorId;
 			},
 
-			onSelectedPatient: function (patientId) {
+			onSelectedPatient: function(patientId) {
 				this.updatePatientLinkModel.patientId = patientId;
 			},
 
-			onLinkDialogShow: function () {
+			onLinkDialogShow: function() {
 				var that = this;
 				MessageBox.warning(this.getView().getModel('i18n').getProperty('titleMessage'), {
 					title: this.getView().getModel('i18n').getProperty('titleMessageBox'),
-					actions: [MessageBox.Action.YES, MessageBox.Action.NO],
-					onClose: async function (sAction) {
+					actions: [ MessageBox.Action.YES, MessageBox.Action.NO ],
+					onClose: async function(sAction) {
 						if (sAction === MessageBox.Action.YES) {
-							await PatientApi.updatePatient(that.updatePatientLinkModel.patientId, that.updatePatientLinkModel.doctorId);
+							await PatientApi.updatePatient(
+								that.updatePatientLinkModel.patientId,
+								that.updatePatientLinkModel.doctorId
+							);
 						}
 					}
 				});
 			},
 
-			onAbout: function (oEvent) {
+			onAbout: function(oEvent) {
 				const aboutSection = this.getView().byId('aboutList');
 				if (aboutSection.getVisible()) {
 					aboutSection.setVisible(false);
@@ -98,14 +119,14 @@ sap.ui.define(
 				}
 			},
 
-			onNavigationBack: function () {
+			onNavigationBack: function() {
 				let oRouter = UIComponent.getRouterFor(this);
 				oRouter.navTo('RouteMainClinicalPage', true);
 			},
 
 			_getDoctors: async () => {
 				let aDoctors;
-				await DoctorApi.getDoctors().then(function (oResult) {
+				await DoctorApi.getDoctors().then(function(oResult) {
 					if (oResult) {
 						aDoctors = oResult;
 					}
@@ -116,7 +137,7 @@ sap.ui.define(
 
 			_getPatients: async () => {
 				let aPatients;
-				await PatientApi.getPatients().then(function (oResult) {
+				await PatientApi.getPatients().then(function(oResult) {
 					if (oResult) {
 						aPatients = oResult;
 					}
@@ -126,7 +147,7 @@ sap.ui.define(
 
 			_getAboutData: async () => {
 				let aAbout;
-				await AboutApi.getAbout().then(function (result) {
+				await AboutApi.getAbout().then(function(result) {
 					if (result) {
 						aAbout = result;
 					}

@@ -38,7 +38,7 @@
 												</HBox>
 												<HBox>
 													<Label text="{selectedDoctor>id}"/>
-													<core:Icon src="sap-icon://notes" class="sapUiSmallMarginBottom infoButton" press="onShowPatientDetails(${patients>firstName}, ${patients>lastName}, ${patients>doctor})" />
+													<core:Icon src="sap-icon://notes" class="sapUiSmallMarginBottom infoButton" press="onShowPatientDetails(${patients>firstName}, ${patients>lastName}, ${patients>age}, ${patients>doctor})" />
 												</HBox>
 											</VBox>
 										</CustomListItem>
