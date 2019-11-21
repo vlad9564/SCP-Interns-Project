@@ -65,7 +65,7 @@ sap.ui.define(
 				this.getView().setModel(oAboutModel, 'about');
 				const aboutSection = this.getView().byId('aboutList');
 				aboutSection.setVisible(true);
-				this.getView().getModel(models.createEmptyDoctorModel, 'selectedDoctor');
+				//this.getView().getModel(models.createEmptyDoctorModel, 'selectedDoctor');
 			},
 			onShowDoctorDetails: function(doctorFirstName, doctorLastName, doctorDepartment) {
 				MessageBox.information(
@@ -76,13 +76,12 @@ sap.ui.define(
 				);
 			},
 			onShowPatientDetails: function(patientFirstName, patientLastName, patientAge, patientDoctor) {
-				debugger;
 				MessageBox.information(
-					`Detailed information about doctor: \n
+					`Detailed information about patient: \n
 					First Name : ${patientFirstName}
 					Last Name : ${patientLastName}
 					Age: ${patientAge}
-					Doctor: ${patientDoctor}`
+					Doctor: ${patientDoctor ? patientDoctor.firstName + ' ' + patientDoctor.lastName : 'unassigned'}`
 				);
 			},
 
@@ -94,17 +93,35 @@ sap.ui.define(
 				this.updatePatientLinkModel.patientId = patientId;
 			},
 
-			onLinkDialogShow: function() {
+			onLinkDialogShow: async function() {
 				var that = this;
 				MessageBox.warning(this.getView().getModel('i18n').getProperty('titleMessage'), {
 					title: this.getView().getModel('i18n').getProperty('titleMessageBox'),
 					actions: [ MessageBox.Action.YES, MessageBox.Action.NO ],
 					onClose: async function(sAction) {
 						if (sAction === MessageBox.Action.YES) {
-							await PatientApi.updatePatient(
+							let updatedPatient = await PatientApi.updatePatient(
 								that.updatePatientLinkModel.patientId,
 								that.updatePatientLinkModel.doctorId
 							);
+
+							if (updatedPatient.status === 'success') {
+								debugger;
+								// iei datele ; var x = this.getView().getModel("").getDAta()
+								// Cauti pacientul , updatezi pacientul ,
+								// Set Data ! this.getView().getModel().setData(x);
+
+								// update Binginds
+								let data = that.getView().getModel('patients').getData();
+								data.forEach((patient) => {
+									if (patient.id === updatedPatient.response.id) {
+										patient.doctor = updatedPatient.response.doctor;
+									}
+								});
+								that.getView().getModel('patients').setData(data);
+								that.getView().getModel('patients').updateBindings();
+								debugger;
+							}
 						}
 					}
 				});

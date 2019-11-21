@@ -11,10 +11,11 @@ public class WebConfig implements WebMvcConfigurer {
 
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {
-		utilMapping(registry, "/patients");
-		utilMapping(registry, "/doctors");
-		utilMapping(registry, "/patient");
-		utilMapping(registry, "/about");
+		// utilMapping(registry, "/patients");
+		// utilMapping(registry, "/doctors");
+		// utilMapping(registry, "/patient");
+		// utilMapping(registry, "/about");
+		utilMapping(registry,"/**");
 
 	}
 	

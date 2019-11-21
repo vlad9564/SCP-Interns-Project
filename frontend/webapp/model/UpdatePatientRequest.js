@@ -1,11 +1,9 @@
-sap.ui.define(
-    [],
-    function () {
-        'use strict';
-        class UpdatePatientRequest {
-            constructor(doctorId) {
-                this.doctorId = doctorId;
-            }
-        }
-        return UpdatePatientRequest;
-    })
+sap.ui.define([], function() {
+	'use strict';
+	class UpdatePatientRequest {
+		constructor(id) {
+			this.id = id;
+		}
+	}
+	return UpdatePatientRequest;
+});

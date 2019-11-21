@@ -45,9 +45,10 @@ public class PatientService {
 		ObjectMapper mapper = new ObjectMapper();
 		PatientsDto patients = mapper.readValue(getPatientsFile(), PatientsDto.class);
 		patients.stream().filter(p -> p.getId().equals(patientId)).findFirst().get().setDoctor(this.findDoctorById(doctorId));
-		FileWriter fileWriter = new FileWriter(new File("src/main/resources/patients.json"));
+		FileWriter fileWriter = new FileWriter(ResourceUtils.getFile("classpath:patients.json"));
 		fileWriter.write(patients.toJSON());
 		fileWriter.close();
-		return patients.stream().filter(value -> value.getId().equals(patientId)).findFirst().get(); 
+		PatientDto chec =  patients.stream().filter(value -> value.getId().equals(patientId)).findFirst().get(); 
+		return chec;
 	}
 }
