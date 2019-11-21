@@ -68,6 +68,17 @@ sap.ui.define(
 				);
 			},
 
+			onShowPatientDetails: function (patientFirstName, patientLastName, patientAge, patientDoctor) {
+
+				MessageBox.information(
+					`Detailed information about doctor: \n
+					First Name : ${patientFirstName}
+					Last Name : ${patientLastName}
+					Age : ${patientAge}
+					Doctor Name : ${patientDoctor}`
+				);
+			},
+
 			onSelectedDoctor: function (doctorId) {
 				this.updatePatientLinkModel.doctorId = doctorId;
 			},
@@ -83,6 +94,7 @@ sap.ui.define(
 					actions: [MessageBox.Action.YES, MessageBox.Action.NO],
 					onClose: async function (sAction) {
 						if (sAction === MessageBox.Action.YES) {
+							// updatePatient
 							await PatientApi.updatePatient(that.updatePatientLinkModel.patientId, that.updatePatientLinkModel.doctorId);
 						}
 					}

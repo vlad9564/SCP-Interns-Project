@@ -3,6 +3,19 @@ _schema-version: '2.1'
 version: 0.0.1
 
 modules:
+ - name: backend
+   type: java
+   path: backend/SCP-Interns-Project-Backend
+   parameters:
+      disk-quota: 700M
+      memory: 700M
+   provides:
+       - name: backend_api
+         properties:
+            url: '${default-url}'
+   build-parameters:
+      build-result: 'target/*.jar'
+      
  - name: frontend
    type: html5
    path: frontend
@@ -13,7 +26,7 @@ modules:
       builder: npm
    requires:
     - name: uaa_Frontend
-#     - name: dest_Frontend
+    - name: backend
 
 resources:
  - name: uaa_Frontend

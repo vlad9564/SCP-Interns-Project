@@ -19,7 +19,7 @@ public class WebConfig implements WebMvcConfigurer {
 	}
 	
 	private void utilMapping(CorsRegistry registry, String path) {
-		registry.addMapping(path).allowedOrigins("http://localhost:5500")
+		registry.addMapping(path).allowedOrigins("*")
 				.allowedMethods("OPTIONS", "GET", "PUT").allowedHeaders("*");
 	}
 }

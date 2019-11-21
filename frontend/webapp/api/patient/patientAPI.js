@@ -3,19 +3,19 @@ sap.ui.define([
 ], function (UpdatePatientRequest) {
     "use strict";
 
-    const URL = "http://localhost:8080/patients";
+    let URL = "https://p2001866547trial-trial-dev-backend.cfapps.eu10.hana.ondemand.com";
     return {
         getPatients: function () {
             return $.ajax({
-                "url": URL,
+                "url": URL + "/patients"
             }).done(function (response, status) {
-                debugger;
+                // debugger;
                 return response;
             });
         },
 
         updatePatient: function (patientId, doctorId) {
-            debugger;
+            // debugger;
             var settings = {
                 "url": `${URL}/patient?patientId=${patientId}`,
                 "method": "PUT",

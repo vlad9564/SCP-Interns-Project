@@ -1,0 +1,6 @@
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.9 (node_modules\@ui5\cli\node_modules\fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.9: wanted {"os":"darwin","arch":"any"} (current: {"os":"win32","arch":"x64"})
+
+audited 10329 packages in 21.513s
+found 152 vulnerabilities (7 low, 11 moderate, 134 high)
+  run `npm audit fix` to fix them, or `npm audit` for details

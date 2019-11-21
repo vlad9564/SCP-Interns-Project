@@ -1,0 +1,76 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------< com.cerner:SCP-Interns-Project-Backend >---------------
+[INFO] Building SCP-Interns-Project-Backend 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ SCP-Interns-Project-Backend ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ SCP-Interns-Project-Backend ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ SCP-Interns-Project-Backend ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Users\FI073492\Desktop\latestVersionSCP\SCP-Interns-Project\backend\SCP-Interns-Project-Backend\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ SCP-Interns-Project-Backend ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.2:test (default-test) @ SCP-Interns-Project-Backend ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.cerner.SCPInternsProjectBackend.ScpInternsProjectBackendApplicationTests
+13:48:27.934 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+13:48:27.978 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+13:48:28.055 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.cerner.SCPInternsProjectBackend.ScpInternsProjectBackendApplicationTests] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+13:48:28.096 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.cerner.SCPInternsProjectBackend.ScpInternsProjectBackendApplicationTests], using SpringBootContextLoader
+13:48:28.109 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.cerner.SCPInternsProjectBackend.ScpInternsProjectBackendApplicationTests]: class path resource [com/cerner/SCPInternsProjectBackend/ScpInternsProjectBackendApplicationTests-context.xml] does not exist
+13:48:28.110 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.cerner.SCPInternsProjectBackend.ScpInternsProjectBackendApplicationTests]: class path resource [com/cerner/SCPInternsProjectBackend/ScpInternsProjectBackendApplicationTestsContext.groovy] does not exist
+13:48:28.111 [main] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.cerner.SCPInternsProjectBackend.ScpInternsProjectBackendApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+13:48:28.112 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.cerner.SCPInternsProjectBackend.ScpInternsProjectBackendApplicationTests]: ScpInternsProjectBackendApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+13:48:28.206 [main] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.cerner.SCPInternsProjectBackend.ScpInternsProjectBackendApplicationTests]
+13:48:28.366 [main] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [C:\Users\FI073492\Desktop\latestVersionSCP\SCP-Interns-Project\backend\SCP-Interns-Project-Backend\target\classes\com\cerner\SCPInternsProjectBackend\ScpInternsProjectBackendApplication.class]
+13:48:28.369 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.cerner.SCPInternsProjectBackend.ScpInternsProjectBackendApplication for test class com.cerner.SCPInternsProjectBackend.ScpInternsProjectBackendApplicationTests
+13:48:28.732 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [com.cerner.SCPInternsProjectBackend.ScpInternsProjectBackendApplicationTests]: using defaults.
+13:48:28.733 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+13:48:28.770 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttributeSource]
+13:48:28.775 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
+13:48:28.776 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@73302995, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@1838ccb8, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6c2ed0cd, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@7d9e8ef7, org.springframework.test.context.support.DirtiesContextTestExecutionListener@f107c50, org.springframework.test.context.event.EventPublishingTestExecutionListener@51133c06, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@4b213651, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@4241e0f4, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@4ebff610, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@60410cd, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@44d52de2]
+13:48:28.783 [main] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@181e731e testClass = ScpInternsProjectBackendApplicationTests, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@35645047 testClass = ScpInternsProjectBackendApplicationTests, locations = '{}', classes = '{class com.cerner.SCPInternsProjectBackend.ScpInternsProjectBackendApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@6a370f4, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@4cc8eb05, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@74455848, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@1a4013], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true]], class annotated with @DirtiesContext [false] with mode [null].
+13:48:28.905 [main] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=-1}
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.2.0.RELEASE)
+
+2019-11-20 13:48:29.588  INFO 1252 --- [           main] ScpInternsProjectBackendApplicationTests : Starting ScpInternsProjectBackendApplicationTests on W1657252 with PID 1252 (started by FI073492 in C:\Users\FI073492\Desktop\latestVersionSCP\SCP-Interns-Project\backend\SCP-Interns-Project-Backend)
+2019-11-20 13:48:29.593  INFO 1252 --- [           main] ScpInternsProjectBackendApplicationTests : No active profile set, falling back to default profiles: default
+2019-11-20 13:48:33.235  WARN 1252 --- [           main] uration$JodaDateTimeJacksonConfiguration : Auto-configuration of Jackson's Joda-Time integration is deprecated in favor of using java.time (JSR-310).
+2019-11-20 13:48:33.556  INFO 1252 --- [           main] ScpInternsProjectBackendApplicationTests : Started ScpInternsProjectBackendApplicationTests in 4.627 seconds (JVM running for 7.141)
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.815 s - in com.cerner.SCPInternsProjectBackend.ScpInternsProjectBackendApplicationTests
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- maven-jar-plugin:3.1.2:jar (default-jar) @ SCP-Interns-Project-Backend ---
+[INFO] Building jar: C:\Users\FI073492\Desktop\latestVersionSCP\SCP-Interns-Project\backend\SCP-Interns-Project-Backend\target\SCP-Interns-Project-Backend-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot-maven-plugin:2.2.0.RELEASE:repackage (repackage) @ SCP-Interns-Project-Backend ---
+[INFO] Replacing main artifact with repackaged archive
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  18.163 s
+[INFO] Finished at: 2019-11-20T13:48:37+02:00
+[INFO] ------------------------------------------------------------------------

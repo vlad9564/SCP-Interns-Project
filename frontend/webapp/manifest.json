@@ -65,6 +65,9 @@
 				}
 			]
 		},
+		"resourceRoots": {
+			"backend": "backend"
+		},
 		"routing": {
 			"config": {
 				"routerClass": "sap.m.routing.Router",
